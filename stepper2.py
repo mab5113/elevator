@@ -1,5 +1,4 @@
 
-  
 #!/usr/bin/python
  
 # Import required libraries
@@ -32,15 +31,9 @@ Seq = [[1,0,0,1],
        [0,0,1,0],
        [0,0,1,1],
        [0,0,0,1]]
-
-Seq3 = [[1,1,0,0],
-       [0,1,1,0],
-       [0,0,1,1],
-       [1,0,0,1]]
-
-       
+    
 StepCount = len(Seq)
-StepDir = 1 # Set to 1 or 2 for clockwise
+StepDir = -1 # Set to 1 or 2 for clockwise
             # Set to -1 or -2 for anti-clockwise
  
 # Read wait time from command line
@@ -49,7 +42,7 @@ if len(sys.argv)>1:
 else:
   WaitTime = 10/float(1000)
 
-WaitTime = .005
+WaitTime = .001
  
 # Initialise variables
 StepCounter = 0
