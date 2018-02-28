@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 
 # CarLiftMotorDriver
@@ -11,7 +10,7 @@ import RPi.GPIO as GPIO
 def CarLiftMotorDriver(direction, RequestedSteps, waitTime):
 totalSteps = 0 
 
-# Define GPIO signals to use
+# Define GPIO pins to use
 # Physical pins 11,15,16,18
 # GPIO17,GPIO22,GPIO23,GPIO24
 StepPins = [17,22,23,24]     

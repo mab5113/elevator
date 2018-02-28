@@ -1,6 +1,6 @@
 
 
-Def DoorOpenClose(operation, Steps, openSpeed, closeSpeed):
+Def DoorOpenClose(openClose, steps, openSpeed, closeSpeed):
 If Operation = 'open':
 For i in range(0,steplimit)
 	If limitswitch closes;
