@@ -1,0 +1,74 @@
+
+http://www.ironpython.info/index.php?title=Receiving_Udp_Packets
+
+from System import AsyncCallback
+from System.Net import IPAddress, IPEndPoint
+from System.Net.Sockets import UdpClient
+from System.Text import Encoding
+
+
+class UdpReceiver(object):
+
+    def __init__(self, port, group):
+        self.closed = False
+        addr = IPAddress.Parse(port)
+        self.client = UdpClient(group)
+        try:
+            self.client.JoinMulticastGroup(addr)
+        except WindowsError:
+            raise Exception("Can't join the multicast group.")
+
+        self.beginReceive()
+
+
+    def close(self):
+        self.closed = True
+        self.client.Close()
+
+
+    def beginReceive(self):
+        self.client.BeginReceive(AsyncCallback(self.udpReceive), None)
+
+
+    def readData(self, asyncResult):
+        if self.closed:
+            return ""
+        remote = IPEndPoint(IPAddress.None, 0)
+        receivedBytes, remote = self.client.EndReceive(asyncResult, remote)
+        return Encoding.UTF8.GetString(receivedBytes).upper()
+
+
+    def udpReceive(self, asyncResult):
+        data = self.readData(asyncResult)
+        self.beginReceive()
+        print "Received Data:", data
+        
+You use it as follows:
+
+port = 5555
+group = "230.29.35.5"
+receiver = UdpReceiver(port, group)
+
+
+Implement the behaviour you need in the udpReceive method. Don't forget that it will be launched on a separate thread by the AsyncCallback. If you want to know about multicast groups, see Sending Udp Packets.
+
+The disadvantage of this approach is that the callback is re-registered everytime a packet is received. If one is received whilst your program is shutting down, then the callback may attempt to access disposed objects inside udpReceive. You will need to put exception handling in place to take account of this.
+
+
+#==============================
+
+
+
+
+import socket
+
+UDP_IP = "127.0.0.1"
+UDP_PORT = 5005
+ 
+sock = socket.socket(socket.AF_INET, # Internet
+                      socket.SOCK_DGRAM) # UDP
+sock.bind((UDP_IP, UDP_PORT))
+ 
+while True:
+     data, addr = sock.recvfrom(1024) 		# buffer size is 1024 bytes
+     print "received message:", data
