@@ -8,11 +8,12 @@ from CarDriver import CarDriver
 from CarMotorDriver import CarMotorDriver
 from CarLampDriver import CarLampDriver
 import config
-
 	
 def main():
 	CarLampDriver('initialize',0,0)
 
+	car=
+	
 	stepPos = 0
 	 
 	# Use BCM GPIO references
@@ -21,8 +22,7 @@ def main():
 	
 	#GPIO.setmode(GPIO.BCM)
 	#GPIO.setwarnings(False)
-	
-	#print(config.FloorStopList)
+
 
 	print(config.FloorStopList)
 	CarDriver('reset',0,.004)
