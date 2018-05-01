@@ -9,5 +9,5 @@ from CarLampMonitor import CarLampMonitor
 	
 def CarMain(id,ipaddress):
 	CarLampMonitor('initialize',0,0)
-	CarManager('x','x','x')
+	CarManager()
 
