@@ -5,3 +5,4 @@ CarCurrentFloor=0
 FloorCurrentStep=0
 CarCurrentDirection=0
 CarCurrentStatus='stopped'
+CarStepWaitTime = .005
