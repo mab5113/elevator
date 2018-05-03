@@ -2,6 +2,12 @@ import time
 import RPi.GPIO as GPIO
 import config
 
+
+# Allow for hystersis of the limit switches
+#  It will take n steps for the limit switch to open
+# LimitSwitchHystersis = 300
+
+
 class StepperDriverClass():
 	currentPosition = 0
 	grandTotalSteps = 0
@@ -26,81 +32,65 @@ class StepperDriverClass():
 	# GPIO3, GPIO4, GPIO5, GPIO6
 	
 	StepPins = [3,4,5,6]	
-	# Set all pins as output
+	# Set all pins as output and set to sink current
 	for pin in StepPins:
 		GPIO.setup(pin,GPIO.OUT)
 		GPIO.output(pin, False)
 		
-	StepCounter = 0
+	StepSeqCounter = 0
 
 	def move2Position(self, Position):
+		totalSteps = 0
 
 		if config.CarCurrentStepPosition > Position:
 			StepDir = 1
 		else:
 			StepDir= -1
 
-		print('stepdriver',Position)
-		StepCount = len(self.Seq)
+		#print('stepdriver', Position)
+		
 		StepPins = [3,4,5,6]
 							   
-		totalSteps = 0
-
-		# Allow for hystersis of the limit switches
-		#  It will take n steps for the limit switch to open
-		LimitSwitchHystersis = 300
 
 		if Position < 0:
-			stepDir = 1
-			Position = abs(Position)
-			if not GPIO.input(7):
-				print("bottom limit")
-				config.CarCurrentStepPosition = 0
-				return
+			stepDir = 1			
 		else:
 			stepDir = -1
-			if not GPIO.input(8) :
+
+
+		print (Position)
+				
+		while config.CarCurrentStepPosition <> Position:
+
+			if not GPIO.input(7) and stepDir == 1:
+				#input goes low/false when switch closes
+				# can't go lower than bottom
+				print("at bottom limit")
+				config.CarCurrentStepPosition = 0
+				return
+			elif not GPIO.input(8) and stepDir ==-1:
 				print("top limit")
 				config.CarCurrentStepPosition = 7300
 				return
-			
-		if not GPIO.input(7) and stepDir ==1:
-			print("at bottom limit")
-			config.CarCurrentStepPosition=0
 
-		if not GPIO.input(8) and stepDir ==1:
-			print("at Top limit")
-			config.CarCurrentStepPosition=7300
-	
-		while config.CarCurrentStepPosition <> Position:
 			for pin in range(0, 4):
+				print(pin)
 				xpin = StepPins[pin]
-				if self.Seq[self.StepCounter][pin]!=0:
+				if self.Seq[self.StepSeqCounter][pin]!=0:
 					GPIO.output(xpin, True)
 				else:
 					GPIO.output(xpin, False)
 			
-			self.StepCounter += StepDir
+			self.StepSeqCounter += StepDir
 			
 			# If we reach the end of the sequence start again
-			if (self.StepCounter>=StepCount):
-				self.StepCounter = 0
-			
-			if (self.StepCounter<0):
-				self.StepCounter = StepCount+StepDir
-			
-			# Wait before moving on
-			time.sleep(config.CarStepWaitTime)
+			if (self.StepSeqCounter>=len(self.Seq)):
+				self.StepCounter = 0			
+			elif (self.StepSeqCounter<0):
+				self.StepSeqCounter = len(self.Seq) + StepDir
 	
 			totalSteps += 1
 			config.CarCurrentStepPosition += -stepDir
 
-			if not GPIO.input(7) and stepDir ==1:
-				print("bottom limit")
-				config.CarCurrentStepPosition=0
-				return
 			
-			if not GPIO.input(8) and stepDir ==-1:
-				print("top limit")
-				config.CarCurrentStepPosition = 7300
-				return
+			time.sleep(config.CarStepWaitTime) # Wait before moving on
