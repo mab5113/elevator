@@ -6,4 +6,5 @@ FloorCurrentStep=0
 CarCurrentDirection=0
 CarCurrentStatus='stopped'
 CarCurrentStepPosition = 0
-CarStepWaitTime = .002
+CarStepWaitTime = .001
+CarTopPosition = 7400

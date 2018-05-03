@@ -28,7 +28,7 @@ def CarLampMonitor(operation,floor, value):
 		GPIO.output(22,False)
 		GPIO.output(23,False)
 
-		time.sleep(1)
+		time.sleep(3)
 		GPIO.output(19,True)
 		GPIO.output(20,True)
 		GPIO.output(21,True)
