@@ -28,6 +28,7 @@ def CarManager():
 			config.FloorStopList[1] = 0
 			CarCurrentStatus='stopped'
 			CarLampManager(CarCurrentFloor, 0)
+			time.sleep(3)
 
 		if config.FloorStopList[2] == 1:
 			Car.move2Position(config.CarTopPosition/4)
@@ -35,6 +36,7 @@ def CarManager():
 			CarLampManager(CarCurrentFloor, 0)
 			config.FloorStopList[2] = 0
 			CarCurrentStatus='stopped'
+			time.sleep(3)
 
 		if config.FloorStopList[3] == 1:
 			Car.move2Position(config.CarTopPosition/4 *2)
@@ -42,6 +44,7 @@ def CarManager():
 			config.FloorStopList[3] = 0
 			CarCurrentStatus='stopped'
 			CarLampManager(CarCurrentFloor, 0)
+			time.sleep(3)
 
 		if config.FloorStopList[4] == 1:
 			Car.move2Position(config.CarTopPosition/4 * 3)
@@ -49,6 +52,7 @@ def CarManager():
 			config.FloorStopList[4] = 0
 			CarCurrentStatus='stopped'
 			CarLampManager(CarCurrentFloor, 0)
+			time.sleep(3)
 
 		if config.FloorStopList[5] == 1:
 			Car.move2Position(100000)
@@ -56,6 +60,7 @@ def CarManager():
 			config.FloorStopList[5] = 0
 			CarCurrentStatus='stopped'
 			CarLampManager(CarCurrentFloor, 0)
+			time.sleep(3)
 
 
 		#print('Current Step Position', config.CarCurrentStepPosition)

@@ -1,10 +1,12 @@
 import config
 import os
 import RPi.GPIO as GPIO
+from HallMain import HallMain
 from CarMain import CarMain
 
 # Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
 #Check device ID
 GPIO.setup(24,GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -13,32 +15,36 @@ GPIO.setup(25,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
 if not GPIO.input(24):
-	id1=0
-else:
 	id1=1
+else:
+	id1=0
 
 if not GPIO.input(25):
-	id2=0
-else:
 	id2=1
+else:
+	id2=0
 
 
 id= id1 + id2 * 2
 
-print(id1,id2)
+print('ID: ',id, id1,id2)
+
+
 
 if id == 0:
 	ipAddress='10.81.104.120/24'
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
-
+	print('Hallway ID found')
 	HallMain(id,ipAddress)
+
 elif id == 1:
 	ipAddress='10.81.104.121/24'
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
+	print('Car Main 1 ID found')
 	CarMain(id,ipAddress)
 
 elif id == 2:
@@ -46,6 +52,7 @@ elif id == 2:
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
+	print('Car Main 2 ID found')
 	CarMain(id,ipAddress)
 
 elif id == 3:
