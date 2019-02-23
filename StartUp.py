@@ -1,8 +1,11 @@
+#StartUp.py Finds Role and loads (dispatches) the corresponding programs
+
+
 import config
 import os
 import RPi.GPIO as GPIO
-from HallMain import HallMain
 from CarMain import CarMain
+
 
 # Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
