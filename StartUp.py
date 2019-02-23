@@ -16,7 +16,7 @@ GPIO.setup(24,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(25,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 
-
+# Read IO port if find ID
 if not GPIO.input(24):
 	id1=1
 else:
