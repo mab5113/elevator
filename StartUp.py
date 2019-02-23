@@ -27,7 +27,7 @@ if not GPIO.input(25):
 else:
 	id2=0
 
-
+#Convert to a binary number
 id= id1 + id2 * 2
 
 print('ID: ',id, id1,id2)
