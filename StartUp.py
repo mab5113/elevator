@@ -33,7 +33,7 @@ else:
 #Convert inputs  to a binary number
 id= id1 + id2 * 2
 
-print('ID: ',id, id1,id2)
+print(' ID1:', id1, '  ID2:', id2, '   ID:', id)
 
 
 
@@ -42,7 +42,8 @@ if id == 0:
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
-	print('Hallway ID found')
+	print ('')
+	print('StartUP: Hallway ID found --> starting HallMain()')
 	HallMain(id,ipAddress)
 
 elif id == 1:
@@ -50,7 +51,8 @@ elif id == 1:
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
-	print('Car Main 1 ID found')
+	print ('')
+	print('StartUP: Car Main 1 ID found --> Starting CarMain()')
 	CarMain(id,ipAddress)
 
 elif id == 2:
@@ -58,7 +60,8 @@ elif id == 2:
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
-	print('Car Main 2 ID found')
+	print('')
+	print('StartUP: Car Main 2 ID found')
 	CarMain(id,ipAddress)
 
 elif id == 3:
@@ -66,6 +69,8 @@ elif id == 3:
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
+	print ('')
+        print('StartUP: ??????? found')
 	CarMain(id,ipAddress)
 
 
