@@ -14,61 +14,64 @@ def CarManager():
 	stepPos = 0
 		
 	Car.move2Position(-10000)
-	CarCurrentFloor=1
-	CarCurrentDirection = 1
-	CarCurrentStepPosition = 0
-	time.sleep(1)
+	CurrentFloor=1
+	CurrentDirection = 1
+	CurrentStepPosition = 0
+	time.sleep(.5)
 
 	print ('CarManager: Starting main loop')
 	while True:
 		# print(config.FloorStopList)
 		
 		if config.FloorStopList[1] == 1:
+			CurrentFloor=1
+			config.FloorStopList[CurrentFloor] = 0
 			print ('CarManager: Moving to floor 1')
 			Car.move2Position(-1000)
-			CarCurrentFloor=1
-			config.FloorStopList[1] = 0
-			CarCurrentStatus='stopped'
-			CarLampManager(CarCurrentFloor, 0)
-			time.sleep(3)
+			print ('CarManager: Arrived floor 1')
+			CurrentStatus='stopped'
+			CarLampManager(CurrentFloor, 0)
+			time.sleep(5)
 
 		if config.FloorStopList[2] == 1:
-                        print ('CarManager: Moving to floor 2')
-
+			CurrentFloor=2
+			config.FloorStopList[CurrentFloor] = 0
+            print ('CarManager: Moving to floor 2')
 			Car.move2Position(config.CarTopPosition/4)
-			CarCurrentFloor=2
-			CarLampManager(CarCurrentFloor, 0)
-			config.FloorStopList[2] = 0
-			CarCurrentStatus='stopped'
-			time.sleep(3)
+			print ('CarManager: Arrived floor 2')
+			CurrentStatus='stopped'
+			CarLampManager(CurrentFloor, 0)
+			time.sleep(5)
 
 		if config.FloorStopList[3] == 1:
-                        print ('CarManager: Moving to floor 3')
-			Car.move2Position(config.CarTopPosition/4 *2)
-			CarCurrentFloor=3
-			config.FloorStopList[3] = 0
-			CarCurrentStatus='stopped'
-			CarLampManager(CarCurrentFloor, 0)
-			time.sleep(3)
-                        print ('CarManager: Moving to floor 1')
+			CurrentFloor=3
+			config.FloorStopList[CurrentFloor] = 0
+			print ('CarManager: Moving to floor 3')
+			Car.move2Position(config.CarTopPosition/4 *2
+			print ('CarManager: Arrived floor 3')
+			CurrentStatus='stopped'
+			CarLampManager(CurrentFloor, 0)
+			time.sleep(5)
+			
 		if config.FloorStopList[4] == 1:
-                        print ('CarManager: Moving to floor 4')
+			CurrentFloor=4
+			config.FloorStopList[CurrentFloor] = 0
+			print ('CarManager: Moving to floor 4')
 			Car.move2Position(config.CarTopPosition/4 * 3)
-			CarCurrentFloor=4
-			config.FloorStopList[4] = 0
-			CarCurrentStatus='stopped'
-			CarLampManager(CarCurrentFloor, 0)
-			time.sleep(3)
+			print ('CarManager: Arrived floor 4')
+			CurrentStatus='stopped'
+			CarLampManager(CurrentFloor, 0)
+			time.sleep(5)
 
 		if config.FloorStopList[5] == 1:
-                        print ('CarManager: Moving to floor 5')
+            print ('CarManager: Moving to floor 5')
 			Car.move2Position(100000)
-			CarCurrentFloor=5
+			print ('CarManager: Arrived floor 5')
+			CurrentFloor=5
 			config.FloorStopList[5] = 0
-			CarCurrentStatus='stopped'
-			CarLampManager(CarCurrentFloor, 0)
-			time.sleep(3)
-
+			CurrentStatus='stopped'
+			CarLampManager(CurrentFloor, 0)
+			time.sleep(5)
 
 		#print('Current Step Position', config.CarCurrentStepPosition)
 
