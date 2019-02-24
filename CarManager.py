@@ -18,6 +18,8 @@ def CarManager():
 	CurrentDirection = 1
 	CurrentStepPosition = 0
 	time.sleep(.5)
+	floorPointer=1
+	direction=1
 
 	print ('CarManager: Starting main loop')
 	while True:
