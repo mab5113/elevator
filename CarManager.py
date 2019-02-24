@@ -49,8 +49,8 @@ def CarManager():
 			CurrentFloor=3
 			config.FloorStopList[CurrentFloor] = 0
 			print ('CarManager: Moving to floor 3')
-			Car.move2Position(config.CarTopPosition/4 *2
-			print ('CarManager: Arrived floor 3')  
+			Car.move2Position(config.CarTopPosition / 4 * 2
+			print ("CarManager: Arrived floor 3")
 			CurrentStatus='stopped'
 			CarLampManager(CurrentFloor, 0)
 			time.sleep(5)
@@ -59,7 +59,7 @@ def CarManager():
 			CurrentFloor=4
 			config.FloorStopList[CurrentFloor] = 0
 			print ('CarManager: Moving to floor 4')
-			Car.move2Position(config.CarTopPosition/4 * 3)
+			Car.move2Position(config.CarTopPosition / 4 * 3)
 			print ('CarManager: Arrived floor 4')
 			CurrentStatus='stopped'
 			CarLampManager(CurrentFloor, 0)
