@@ -34,8 +34,9 @@ else:
 id= id1 + id2 * 2
 
 print(' ID1:', id1, '  ID2:', id2, '   ID:', id)
+config.FloorStopList[0] = 200
 
-
+print (config.FloorStopList)
 
 if id == 0:
 	ipAddress='10.81.104.120/24'
@@ -70,7 +71,7 @@ elif id == 3:
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
-        print('StartUP: ??????? found')
+	print('StartUP: ??????? found')
 	CarMain(id,ipAddress)
 
 

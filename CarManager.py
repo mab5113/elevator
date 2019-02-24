@@ -18,8 +18,10 @@ def CarManager():
 	CurrentDirection = 1
 	CurrentStepPosition = 0
 	time.sleep(.5)
-	floorPointer=1
+
+	floor=1
 	direction=1
+
 	config.FloorStopList[1] = 0
 	config.FloorStopList[2] = 0
 	config.FloorStopList[3] = 0
@@ -27,6 +29,7 @@ def CarManager():
 	config.FloorStopList[5] = 0
 
 	print ('CarManager: Starting main loop')
+
 	while True:
 		# print(config.FloorStopList)
 		
@@ -53,11 +56,11 @@ def CarManager():
 		if config.FloorStopList[3] == 1:
 			CurrentFloor=3
 			config.FloorStopList[CurrentFloor] = 0
-			print ('CarManager: Moving to floor 3')
-			Car.move2Position(config.CarTopPosition / 4 * 2
-			print ("CarManager: Arrived floor 3")
-			CurrentStatus='stopped'
-			CarLampManager(CurrentFloor, 0)
+			#print ('CarManager: Moving to floor 3')
+			#Car.move2Position(config.CarTopPosition / 4 * 2
+			#print ('CarManager: Arrived floor 3')
+			#CurrentStatus='stopped'
+			#CarLampManager(CurrentFloor, 0)
 			time.sleep(5)
 			
 		if config.FloorStopList[4] == 1:
@@ -83,3 +86,6 @@ def CarManager():
 		#print('Current Step Position', config.CarCurrentStepPosition)
 
 		time.sleep(.5)
+		floor = floor +1
+		config.FloorStopList[0] = floor
+		print (config.FloorStopList)

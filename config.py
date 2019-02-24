@@ -1,7 +1,7 @@
 test=''
 CarLampsPins=[0,19,20,21,22,23]
 
-FloorStopList=[0,0,0,1,1,1]
+FloorStopList=[0,0,1,0,0,0]
 FloorStopListUP=[0,0,0,0,0,0]
 FloorStopListDOWN=[0,0,0,0,0,0]
 
