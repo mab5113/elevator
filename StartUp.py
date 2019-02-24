@@ -1,11 +1,13 @@
-#StartUp.py Finds Role and loads (dispatches) the corresponding programs
-
+#StartUp.py 
+# Determines the role of this RPi by reading jumpers on two inputs
 
 import config
 import os
 import RPi.GPIO as GPIO
 from CarMain import CarMain
 
+IDPin1=24
+IDPin2=25
 
 # Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
