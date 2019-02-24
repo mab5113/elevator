@@ -19,6 +19,7 @@ def CarManager():
 	CarCurrentStepPosition = 0
 	time.sleep(1)
 
+	print ('CarManager: Starting main loop')
 	while True:
 		# print(config.FloorStopList)
 		

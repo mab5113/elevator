@@ -50,6 +50,7 @@ class StepperDriverClass():
 		StepPins = [6,5,4,3]
 							   
 		while config.CarCurrentStepPosition <> Position:
+			#Each loop will rotate one step
 
 			if not GPIO.input(7) and stepDir == -1:
 				#At bottome, input is low/false when switch closes
@@ -59,6 +60,7 @@ class StepperDriverClass():
 				return
 			elif not GPIO.input(8) and stepDir == 1:
 				print("top limit")
+				print (config.CarCurrentStepPosition)
 				#config.CarCurrentStepPosition = 7300
 				return
 
@@ -71,7 +73,7 @@ class StepperDriverClass():
 			
 			self.StepSeqCounter += stepDir
 			
-			# If we reach the end of the sequence start again
+			# When/If we reach the end of the sequence start again
 			if self.StepSeqCounter >= len(self.Seq):
 				self.StepSeqCounter = 0			
 			elif self.StepSeqCounter<0:
