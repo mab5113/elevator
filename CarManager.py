@@ -24,6 +24,7 @@ def CarManager():
 		# print(config.FloorStopList)
 		
 		if config.FloorStopList[1] == 1:
+			print ('CarManager: Moving to floor 1')
 			Car.move2Position(-1000)
 			CarCurrentFloor=1
 			config.FloorStopList[1] = 0
@@ -32,6 +33,8 @@ def CarManager():
 			time.sleep(3)
 
 		if config.FloorStopList[2] == 1:
+                        print ('CarManager: Moving to floor 2')
+
 			Car.move2Position(config.CarTopPosition/4)
 			CarCurrentFloor=2
 			CarLampManager(CarCurrentFloor, 0)
@@ -40,14 +43,16 @@ def CarManager():
 			time.sleep(3)
 
 		if config.FloorStopList[3] == 1:
+                        print ('CarManager: Moving to floor 3')
 			Car.move2Position(config.CarTopPosition/4 *2)
 			CarCurrentFloor=3
 			config.FloorStopList[3] = 0
 			CarCurrentStatus='stopped'
 			CarLampManager(CarCurrentFloor, 0)
 			time.sleep(3)
-
+                        print ('CarManager: Moving to floor 1')
 		if config.FloorStopList[4] == 1:
+                        print ('CarManager: Moving to floor 4')
 			Car.move2Position(config.CarTopPosition/4 * 3)
 			CarCurrentFloor=4
 			config.FloorStopList[4] = 0
@@ -56,6 +61,7 @@ def CarManager():
 			time.sleep(3)
 
 		if config.FloorStopList[5] == 1:
+                        print ('CarManager: Moving to floor 5')
 			Car.move2Position(100000)
 			CarCurrentFloor=5
 			config.FloorStopList[5] = 0
