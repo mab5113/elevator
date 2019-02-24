@@ -20,6 +20,11 @@ def CarManager():
 	time.sleep(.5)
 	floorPointer=1
 	direction=1
+	config.FloorStopList[1] = 0
+	config.FloorStopList[2] = 0
+	config.FloorStopList[3] = 0
+	config.FloorStopList[4] = 0
+	config.FloorStopList[5] = 0
 
 	print ('CarManager: Starting main loop')
 	while True:
