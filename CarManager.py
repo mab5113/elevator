@@ -36,7 +36,7 @@ def CarManager():
 		if config.FloorStopList[2] == 1:
 			CurrentFloor=2
 			config.FloorStopList[CurrentFloor] = 0
-            print ('CarManager: Moving to floor 2')
+			print ('CarManager: Moving to floor 2')
 			Car.move2Position(config.CarTopPosition/4)
 			print ('CarManager: Arrived floor 2')
 			CurrentStatus='stopped'
@@ -64,7 +64,7 @@ def CarManager():
 			time.sleep(5)
 
 		if config.FloorStopList[5] == 1:
-            print ('CarManager: Moving to floor 5')
+			print ('CarManager: Moving to floor 5')
 			Car.move2Position(100000)
 			print ('CarManager: Arrived floor 5')
 			CurrentFloor=5
