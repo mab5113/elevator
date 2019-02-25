@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import random
 import time
 import config
 import RPi.GPIO as GPIO
@@ -19,6 +20,9 @@ def CarManager():
 	CurrentStepPosition = 0
 	time.sleep(.5)
 
+	up = 1
+	down = -1
+	topFloor = 5
 	floor=1
 	direction=1
 
@@ -33,59 +37,47 @@ def CarManager():
 	while True:
 		# print(config.FloorStopList)
 		
-		if config.FloorStopList[1] == 1:
-			CurrentFloor=1
-			config.FloorStopList[CurrentFloor] = 0
-			print ('CarManager: Moving to floor 1')
-			Car.move2Position(-1000)
-			print ('CarManager: Arrived floor 1')
-			CurrentStatus='stopped'
-			CarLampManager(CurrentFloor, 0)
-			time.sleep(5)
-
-		if config.FloorStopList[2] == 1:
-			CurrentFloor=2
-			config.FloorStopList[CurrentFloor] = 0
-			print ('CarManager: Moving to floor 2')
-			Car.move2Position(config.CarTopPosition/4)
-			print ('CarManager: Arrived floor 2')
-			CurrentStatus='stopped'
-			CarLampManager(CurrentFloor, 0)
-			time.sleep(5)
-
-		if config.FloorStopList[3] == 1:
-			CurrentFloor=3
-			config.FloorStopList[CurrentFloor] = 0
-			#print ('CarManager: Moving to floor 3')
-			#Car.move2Position(config.CarTopPosition / 4 * 2
-			#print ('CarManager: Arrived floor 3')
-			#CurrentStatus='stopped'
-			#CarLampManager(CurrentFloor, 0)
-			time.sleep(5)
+		if config.FloorStopList[floor] == 1:
+			config.FloorStopList[floor] = 0
+			print ('CarManager: Moving to floor ', floor)
 			
-		if config.FloorStopList[4] == 1:
-			CurrentFloor=4
-			config.FloorStopList[CurrentFloor] = 0
-			print ('CarManager: Moving to floor 4')
-			Car.move2Position(config.CarTopPosition / 4 * 3)
-			print ('CarManager: Arrived floor 4')
+			if floor == 1:
+				Car.move2Position(-1000)
+			                  
+			elif floor == 2:
+                                Car.move2Position(config.CarTopPosition/4)
+
+			elif floor == 3:
+				Car.move2Position(config.CarTopPosition / 4 * 2)
+
+			elif floor == 4:
+				Car.move2Position(config.CarTopPosition / 4 * 3)
+
+
+			elif floor == 5:
+				Car.move2Position(100000)
+
+			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'
-			CarLampManager(CurrentFloor, 0)
+			CarLampManager(floor, 0)
 			time.sleep(5)
 
-		if config.FloorStopList[5] == 1:
-			print ('CarManager: Moving to floor 5')
-			Car.move2Position(100000)
-			print ('CarManager: Arrived floor 5')
-			CurrentFloor=5
-			config.FloorStopList[5] = 0
-			CurrentStatus='stopped'
-			CarLampManager(CurrentFloor, 0)
-			time.sleep(5)
-
-		#print('Current Step Position', config.CarCurrentStepPosition)
-
-		time.sleep(.5)
-		floor = floor +1
-		config.FloorStopList[0] = floor
+		
+		config.FloorStopList[0] = config.FloorStopList[0] + 1
 		print (config.FloorStopList)
+
+
+		floor = floor + direction
+		if floor == topFloor + 1:
+			direction = down
+			floor = topFloor - 2
+		if floor ==0:
+			direction = up
+			floor = 2
+
+                print (floor)
+		f = random.randint(1,5)
+		
+		config.FloorStopList[f] = 1
+
+		CarLampManager(f, 1)
