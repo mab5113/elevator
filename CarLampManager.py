@@ -8,31 +8,41 @@ def CarLampManager(floor,status):
 	# instead of physical pin numbers
 	#GPIO.setmode(GPIO.BOARD)
 	
-	GPIO.setmode(GPIO.BCM)
+	carFloorLamp1= 19
+	carFloorLamp2 = 20
+	carFloorLamp3 = 21
+	carFloorLamp4 = 22
+	carFloorLamp5 = 23
+	
+	#Set RPi output such that a True (High) outputs +5V to pin
+	#  the Led-resistor is connected to ground to compete the circut
+	#  and turn on the LED
+	
+	GPIO.setmode(GPIO.BCM)		# Use pin numbers, not GPIO numbers
 	GPIO.setwarnings(False)
-	GPIO.setup(19,GPIO.OUT)
-	GPIO.setup(20,GPIO.OUT)
-	GPIO.setup(21,GPIO.OUT)
-	GPIO.setup(22,GPIO.OUT)
-	GPIO.setup(23,GPIO.OUT)
+	GPIO.setup(carFloorLamp1,GPIO.OUT)
+	GPIO.setup(carFloorLamp2,GPIO.OUT)
+	GPIO.setup(carFloorLamp3,GPIO.OUT)
+	GPIO.setup(carFloorLamp4,GPIO.OUT)
+	GPIO.setup(carFloorLamp5,GPIO.OUT)
 
 	
 	if floor == 1:
-		GPIO.output(19,True)
-		config.FloorStopList[floor]=status
+		GPIO.output(carFloorLamp1,True)
+		#config.FloorStopList[floor]=status
 
 	if floor == 2:
-		GPIO.output(20,True)
-		config.FloorStopList[floor]=status
+		GPIO.output(carFloorLamp2,True)
+		#config.FloorStopList[floor]=status
 
 	if floor == 3:
-		GPIO.output(21,True)
-		config.FloorStopList[floor]=status
+		GPIO.output(carFloorLamp3,True)
+		#config.FloorStopList[floor]=status
 
 	if floor == 4:
-		GPIO.output(22,True)
-		config.FloorStopList[floor]=status
+		GPIO.output(carFloorLamp4,True)
+		#config.FloorStopList[floor]=status
 
 	if floor == 5:
-		GPIO.output(23,True)
-		config.FloorStopList[floor]=status
+		GPIO.output(carFloorLamp5,True)
+		#config.FloorStopList[floor]=status
