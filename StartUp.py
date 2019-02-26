@@ -39,7 +39,7 @@ config.FloorStopList[0] = 200
 print (config.FloorStopList)
 
 if id == 0:
-	ipAddress='10.81.104.120/24'
+	ipAddress=config.IpHall
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
@@ -48,7 +48,7 @@ if id == 0:
 	HallLampInitialize()
 
 elif id == 1:
-	ipAddress='10.81.104.121/24'
+	ipAddress= config.IpCar1
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
@@ -57,7 +57,7 @@ elif id == 1:
 	CarMain(id,ipAddress)
 
 elif id == 2:
-	ipAddress='10.81.104.122/24'
+	ipAddress=config.Cr2
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
@@ -66,13 +66,13 @@ elif id == 2:
 	CarMain(id,ipAddress)
 
 elif id == 3:
-	ipAddress='10.81.104.123/24'
+	ipAddress=IpCar2
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: ??????? found')
-	CarMain(id,ipAddress)
+	#CarMain(id,ipAddress)
 
 
 #def CarStartUp():
