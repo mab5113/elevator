@@ -1,3 +1,4 @@
+
 import time
 import RPi.GPIO as GPIO
 import config
@@ -13,10 +14,12 @@ class StepperDriverClass():
 	grandTotalSteps = 0
 	def __init__(self): 
 		pass
+
 	# instance variables unique to each instance
 	
 	# Define H-bridge sequence in manufacturers datasheet
 	#  Notice that from step to step, only one bit changes
+
 	Seq = [[1,0,0,1], [1,0,0,0], [1,1,0,0], [0,1,0,0], [0,1,1,0], [0,0,1,0], [0,0,1,1], [0,0,0,1]]
 	
 	# Use BCM GPIO references instead of physical pin numbers
@@ -61,7 +64,6 @@ class StepperDriverClass():
 			elif not GPIO.input(8) and stepDir == 1:
 				print("top limit")
 				print (config.CarCurrentStepPosition)
-				#config.CarCurrentStepPosition = 7300
 				return
 
 			for pin in range(0, 4):

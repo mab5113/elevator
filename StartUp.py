@@ -53,25 +53,26 @@ elif id == 1:
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
-	print('StartUP: Car Main 1 ID found --> Starting CarMain()')
+	print('StartUp: Car Main 1 ID found --> Starting CarMain()')
 	CarMain(id,ipAddress)
 
 elif id == 2:
-	ipAddress=config.Cr2
+	ipAddress=config.IpCar2
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print('')
-	print('StartUP: Car Main 2 ID found')
+	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
 	CarMain(id,ipAddress)
 
 elif id == 3:
-	ipAddress=IpCar2
+	ipAddress=IpCar3
 	os.system('sudo ifconfig eth0 down')
+
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
-	print('StartUP: ??????? found')
+	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
 	#CarMain(id,ipAddress)
 
 

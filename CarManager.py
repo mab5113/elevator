@@ -64,11 +64,11 @@ def CarManager():
 			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'
 			CarLampManager(floor, 0)
-			time.sleep(5)
+		time.sleep(1)
 
 		
-		config.FloorStopList[0] = config.FloorStopList[0] + 1
-		print (config.FloorStopList)
+		# config.FloorStopList[0] = config.FloorStopList[0] + 1
+		# print (config.FloorStopList)
 
 		# TODO: Explain this code
 		floor = floor + direction
@@ -79,7 +79,7 @@ def CarManager():
 			direction = up
 			floor = 2
 
-                print (floor)
+                print ('CarManager: ', floor)
 		
 		#code to exercise the elevator
 		#f = random.randint(1,5)

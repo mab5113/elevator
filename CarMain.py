@@ -1,14 +1,17 @@
 #!/usr/bin/python3
+
+#ToDO: add description of this module
+#  
  
 # Import required libraries
-
 # import config
-import time
+# import time
+
 from CarManager import CarManager
 from CarLampMonitor import CarLampMonitor
 
 	
-def CarMain(id,ipaddress):
-	CarLampMonitor('initialize',0,0)
+def CarMain(carID,ipAddress):
+	CarLampMonitor()
 	CarManager()
 
