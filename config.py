@@ -10,8 +10,20 @@ HallStopList = [0,0,0,0,0,0]
 #   1= going up
 #  -1 = going down
 #   0 = not in operation
-Can handle as many cars approprate
+# Can handle as many cars approprate
+#   each car has an entry
 car1CurrentFloor =  [0,0,0,0,0,0]
+
+ipCar1='10.81.104.21/24'
+IpCar2='10.81.104.22/24'
+IpHall='10.81.104.23/24'
+Ipzzz='10.81.104.24/24'
+IpMatt='10.81.104.25/24'
+IpCory='10.81.104.26/24'
+IpKyle='10.81.104.27/24'
+IpSean='10.81.104.28/24'
+IpRyan='10.81.104.29/24'
+IpChristian='10.81.104.30/24'
 
 # floor positions for the stepper motor
 # Might convet to lists (of lists) so each car can have its own list
