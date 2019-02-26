@@ -3,10 +3,16 @@ import RPi.GPIO as GPIO
 from HallLampCallBack import HallLampCallBack
 
 def HallLampMonitor(operation,floor, value):
+	
+	
 	if operation =='clearall':
 		pass
-	elif operation=='floor':
-		pass
+	elif operation=='OnOff':
+		if value == 1: 
+			GPIO.output(floor,True)
+		elif: value == 0
+			GPIO.output(floor,False)
+
 	elif operation=='initialize':
 		print ('initialize')
 
