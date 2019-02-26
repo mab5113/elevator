@@ -45,7 +45,7 @@ if id == 0:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: Hallway ID found --> starting HallMain()')
-	HallMain(id,ipAddress)
+	HallLampInitialize()
 
 elif id == 1:
 	ipAddress='10.81.104.121/24'
