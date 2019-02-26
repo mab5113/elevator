@@ -1,4 +1,8 @@
 #!/usr/bin/python
+# TODO:
+#   add comments at top of this module the describe the purpose of this module
+#   Describe reason for the StepperDriverClass
+#   Add recommendations for identifier names
 
 import random
 import time
@@ -14,7 +18,7 @@ def CarManager():
 	
 	stepPos = 0
 		
-	Car.move2Position(-10000)
+	Car.move2Position(-10000)	#???
 	CurrentFloor=1
 	CurrentDirection = 1
 	CurrentStepPosition = 0
@@ -35,7 +39,7 @@ def CarManager():
 	print ('CarManager: Starting main loop')
 
 	while True:
-		# print(config.FloorStopList)
+		# TODO:  convert this code to process without if statements
 		
 		if config.FloorStopList[floor] == 1:
 			config.FloorStopList[floor] = 0
@@ -66,7 +70,7 @@ def CarManager():
 		config.FloorStopList[0] = config.FloorStopList[0] + 1
 		print (config.FloorStopList)
 
-
+		# TODO: Explain this code
 		floor = floor + direction
 		if floor == topFloor + 1:
 			direction = down
@@ -76,8 +80,8 @@ def CarManager():
 			floor = 2
 
                 print (floor)
-		f = random.randint(1,5)
 		
-		config.FloorStopList[f] = 1
-
-		CarLampManager(f, 1)
+		#code to exercise the elevator
+		#f = random.randint(1,5)
+		#config.FloorStopList[f] = 1
+		#CarLampManager(f, 1)
