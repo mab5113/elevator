@@ -9,6 +9,7 @@ from CarMain import CarMain
 IDPin1=24
 IDPin2=25
 
+
 # Use BCM GPIO references instead of physical pin numbers
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
