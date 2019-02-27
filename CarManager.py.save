@@ -42,7 +42,7 @@ def CarManager():
 		# TODO:  convert this code to process without if statements
 		
 		if config.FloorStopList[floor] == 1:
-			config.FloorStopList[floor] = 0
+			
 			print ('CarManager: Moving to floor ', floor)
 			
 			if floor == 1:
@@ -72,19 +72,16 @@ def CarManager():
 
 		# TODO: Explain this code
 		floor = floor + direction
-		# floor = floor +1 
-		if floor == topFloor +1:
+		if floor == topFloor + 1:
 			direction = down
-			floor = topFloor + direction
+			floor = topFloor - 2
 		if floor ==0:
 			direction = up
-			floor =  floor + direction
-	
+			floor = 2
+
                 print ('CarManager: ', floor)
 		
 		#code to exercise the elevator
-		f = random.randint(1,5)
-		config.FloorStopList[f] = 1
-		CarLampManager(f, 1)
-
-		print (config.FloorStopList)
+		#f = random.randint(1,5)
+		#config.FloorStopList[f] = 1
+		#CarLampManager(f, 1)

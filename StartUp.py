@@ -35,7 +35,8 @@ else:
 id= id1 + id2 * 2
 
 print(' ID1:', id1, '  ID2:', id2, '   ID:', id)
-config.FloorStopList[0] = 200
+
+# config.FloorStopList[0] = 200
 
 print (config.FloorStopList)
 

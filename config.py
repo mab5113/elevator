@@ -38,7 +38,7 @@ FloorCurrentStep = 0
 CarCurrentDirection = 0
 CarCurrentStatus = 'stopped'
 CarCurrentStepPosition = 0
-CarStepWaitTime = .002
+CarStepWaitTime = .0015
 CarTopPosition = 7400
 
 CarFloorLampsPins=[0,19,20,21,22,23]
