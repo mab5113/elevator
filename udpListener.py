@@ -36,8 +36,14 @@ thread1= myThread(1,"Thread1", 1)
 thread1.start()
 
 
+text = "start"
+while text <> "end":
+	text = raw_input("prompt")  # Python 2
+	sendMessage(text)
+
+
 def sendMessage(msg):
-	UDP_IP = "127.0.0.1"
+	UDP_IP = "192.168.254.70"
 	UDP_PORT = 5005
 	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
 
@@ -47,12 +53,12 @@ def sendMessage(msg):
 	s.send(bytesToSend)
 	s.close()
 
-sendMessage("hello ")
-sendMessage("hello 2")
+
+text = "start"
+while text <> "end":
+        text = raw_input("prompt")  # Python 2
+        sendMessage(text)
 
 
-
-
-
-
-
+#sendMessage("hello ")
+#sendMessage("hello 2")

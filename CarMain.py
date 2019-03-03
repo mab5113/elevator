@@ -9,9 +9,7 @@
 
 from CarManager import CarManager
 from CarLampMonitor import CarLampMonitor
-
 	
 def CarMain(carID,ipAddress):
 	CarLampMonitor()
 	CarManager()
-

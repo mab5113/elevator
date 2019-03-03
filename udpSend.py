@@ -1,35 +1,12 @@
-http://www.ironpython.info/index.php?title=Sending_Udp_Packets
+#http://www.ironpython.info/index.php?title=Sending_Udp_Packets
 
-    
-    
-from System.Net import IPAddress
-from System.Net.Sockets import UdpClient
-from System.Text import Encoding
+import socket
 
 
-class UdpSender(object):
-    def __init__(self, port, ipAddress):
-        self.client = UdpClient(0)
- 
-        # Only set this if you want to be able to listen
-        # on the same machine
-        self.client.MulticastLoopback = True
 
-        # No *need* to parse - you can pass in a string
-        addr = IPAddress.Parse(ipAddress)
-
-        # Connecting means that you don't have to specify
-        # The IP address when we call send.
-        # For Udp, connecting isn't a requirement though
-        self.client.Connect(addr, port)
+def send(message):
+	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+	sock.sendto(message, ("192.168.254.70", 5010))
 
 
-    def send(self, message):
-        bytearr = Encoding.UTF8.GetBytes(message)
-        self.client.Send(bytearr, bytearr.Length)
-
-port = 5555
-group = "230.29.35.5"
-
-udpSender = UdpSender(port, group)
-udpSender.send("Some text")
+send("Some text")
