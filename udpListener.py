@@ -14,10 +14,13 @@ class myThread (threading.Thread):
 		myListener()
 		threadlock.release()
 
+	def stop(self):
+		sys.exit()
+
 
 def myListener():
-	UDP_IP = "127.0.0.1"
-	UDP_PORT = 5005
+	UDP_IP = "10.81.104.120"
+	UDP_PORT = 5017
  
 	sock = socket.socket(socket.AF_INET, # Internet
                       socket.SOCK_DGRAM) # UDP Datagram
@@ -27,37 +30,42 @@ def myListener():
 
 	while True:
 		msg, addr = sock.recvfrom(1024)	# buffer size is 1024 bytes
-		print ("received message:", msg.decode())
-		config.test=msg.decode()
+		m = str(msg)  #.decode('utf-8')
+		print (m)
+		print (addr)
+		config.test=m
 		print (config.test)
+		if m == 'quit':
+			thread1.stop()
+			pass
+
 
 threadlock = threading.Lock()
 thread1= myThread(1,"Thread1", 1)
 thread1.start()
 
-
-text = "start"
-while text <> "end":
-	text = raw_input("prompt")  # Python 2
-	sendMessage(text)
-
-
-def sendMessage(msg):
-	UDP_IP = "192.168.254.70"
-	UDP_PORT = 5005
-	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
-
-	s.connect((UDP_IP, UDP_PORT))
-	bytesToSend = str.encode(msg)
-
-	s.send(bytesToSend)
-	s.close()
+#text = "start"
+#while text <> "end":
+#	text = raw_input("prompt")  # Python 2
+#	sendMessage(text)
 
 
-text = "start"
-while text <> "end":
-        text = raw_input("prompt")  # Python 2
-        sendMessage(text)
+#def sendMessage(msg):
+#	UDP_IP = "192.168.254.70"
+#	UDP_PORT = 5005
+#	s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, 0)
+
+#	s.connect((UDP_IP, UDP_PORT))
+#	bytesToSend = str.encode(msg)
+
+#	s.send(bytesToSend)
+#	s.close()
+
+
+#text = "start"
+#while text <> "end":
+#        text = raw_input("prompt")  # Python 2
+#        sendMessage(text)
 
 
 #sendMessage("hello ")

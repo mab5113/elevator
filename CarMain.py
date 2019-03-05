@@ -9,7 +9,9 @@
 
 from CarManager import CarManager
 from CarLampMonitor import CarLampMonitor
+import udpListener
 	
 def CarMain(carID,ipAddress):
 	CarLampMonitor()
+	udpListener()
 	CarManager()
