@@ -65,6 +65,8 @@ elif id == 1:
 	print('StartUp: Car Main 1 ID found --> Starting CarMain()')
 	CarMain(id,ipAddress)
 
+	#Car ID and ip address are passed as arguments to car main function
+
 elif id == 2:
 	ipAddress=config.IpCar2
 	os.system('sudo ifconfig eth0 down')

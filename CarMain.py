@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
-#ToDO: add description of this module
-#  
+# imports and runs the different classes used to move the car and light up the lamps
+# imports the CarLampMonitor Class from CarLampMonitor.py
+# imports the CarManager class from ClassManager.py
  
 # Import required libraries
 # import config
