@@ -11,6 +11,7 @@ import config
 
 
 class StepperDriverClass():
+	#Initializes starting position and counter for steps taken
 	currentPosition = 0
 	grandTotalSteps = 0
 	def __init__(self): 
