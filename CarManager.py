@@ -71,7 +71,7 @@ def CarManager():
 		# config.FloorStopList[0] = config.FloorStopList[0] + 1
 		# print (config.FloorStopList)
 
-		# TODO: Explain this code
+		# floor will start at 0, this makes it so the first floor will be 1, etc
 		floor = floor + direction
 		# floor = floor +1 
 		if floor == topFloor +1:
