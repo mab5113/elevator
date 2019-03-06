@@ -1,5 +1,6 @@
 <style>
 h2 {color: blue;}>
+</style>
 <p>.This project developes the code for a model elevator of 2 cars runs on a raspberry pi 3 <br>
 <br>
 to clone <br>
