@@ -15,7 +15,7 @@ Current Status
 With the success of the prototype, AHI has agreed to continue funding the project to scale up the model and add features with a new team of developers. 
 The model and software will implement as many “normal” passenger elevator functions as possible. 
 
-<h1 style= "color:green;"> MASTER (raspberry pi)
+<h1> MASTER (raspberry pi) </h1>
 
 <p>
 gets button presses<br>
@@ -26,7 +26,7 @@ Computes car movement priority <br>
 </p>
 
 
-CAR 1 control (raspberry pi)
+<h1>CAR 1 control (raspberry pi) </h1>
 <p>
 Move car up/down<br>
 Controls door<br>
@@ -37,7 +37,7 @@ Send car info to master<br>
 Receives floor stop list from master<br>
 </p>
 
-CAR 2 control (Raspberry PI)
+<h1>CAR 2 control (Raspberry PI) </h1>
 <p>
 Move car up/down<br>
 Controls door<br>
@@ -48,7 +48,7 @@ Send car info to master<br>
 Receives floor stop list from master<br>
 </p>
 
-Monitor Hallway Buttons (Raspberry PI)
+<h1>Monitor Hallway Buttons (Raspberry PI)</h1>
 <p>
 Controls Hall Way LAMP<br>
 Send button info to master<br>
