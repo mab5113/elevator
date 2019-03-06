@@ -1,6 +1,4 @@
-<style>
-h2 {color: blue;}>
-</style>
+
 <p>.This project developes the code for a model elevator of 2 cars runs on a raspberry pi 3 <br>
 <br>
 to clone <br>
@@ -19,7 +17,7 @@ With the success of the prototype, AHI has agreed to continue funding the projec
 The model and software will implement as many “normal” passenger elevator functions as possible. <br>
 <br>
 </p>
-<h2> MASTER (raspberry pi) </h2>
+<h3> MASTER (raspberry pi) </h3>
 
 <p>
 gets button presses<br>
@@ -30,7 +28,7 @@ Computes car movement priority <br>
 </p>
 
 
-<h2>CAR 1 control (raspberry pi) </h2>
+<h3>CAR 1 control (raspberry pi) </h3>
 <p>
 Move car up/down<br>
 Controls door<br>
@@ -41,7 +39,7 @@ Send car info to master<br>
 Receives floor stop list from master<br>
 </p>
 
-<h2>CAR 2 control (Raspberry PI) </h2>
+<h3>CAR 2 control (Raspberry PI) </h3>
 <p>
 Move car up/down<br>
 Controls door<br>
@@ -52,7 +50,7 @@ Send car info to master<br>
 Receives floor stop list from master<br>
 </p>
 
-<h2>Monitor Hallway Buttons (Raspberry PI)</h2>
+<h3>Monitor Hallway Buttons (Raspberry PI)</h3>
 <p>
 Controls Hall Way LAMP<br>
 Send button info to master<br>
