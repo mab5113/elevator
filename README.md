@@ -47,5 +47,5 @@ CAR 2 control (Raspberry PI)
 
 Monitor Hallway Buttons (Raspberry PI)
 
-#Controls HW LAMP
+#Controls Hall Way LAMP
 #Send button info to master
