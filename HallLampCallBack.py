@@ -8,7 +8,7 @@ import config
 def HallLampCallBack(channel):  
 
 	# Use BCM GPIO references
-	# instead of physical pin numbers
+	# instead of physical pin numbers 
 	#GPIO.setmode(GPIO.BOARD)
 	
 	GPIO.setmode(GPIO.BCM)	# Use pin numbering, not GPIO numbers
