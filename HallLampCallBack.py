@@ -9,12 +9,12 @@ def HallLampCallBack(channel):
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers 
-	#GPIO.setmode(GPIO.BOARD)
+	# GPIO.setmode(GPIO.BOARD)
 	
 	GPIO.setmode(GPIO.BCM)	# Use pin numbering, not GPIO numbers
 	GPIO.setwarnings(False)
 			
-
+	# What does rising edge refer to?
 	print ("HallLampCallBack: Rising edge detected on port: ",channel)  
 	floor = 0
 	
@@ -32,6 +32,7 @@ def HallLampCallBack(channel):
 	elif channel == 10: floor=4
 	elif channel == 11: floor=5
 	
+	# Displays floor number pressed
 	print("HallLampCallBack: ", floor)
 	
 	pin=config.CarLampsPins[floor]
