@@ -18,36 +18,38 @@ The model and software will implement as many “normal” passenger elevator fu
 <h1 style= "color:green;"> MASTER (raspberry pi)
 
 <p>
-#gets button presses<br>
-#Gets car location<br>
-#Maintain floor lists<br>
-#Send floor stop lists to cars<br>
-#Computes car movement priority <br>
+gets button presses<br>
+Gets car location<br>
+Maintain floor lists<br>
+Send floor stop lists to cars<br>
+Computes car movement priority <br>
 </p>
 
 
 CAR 1 control (raspberry pi)
-
-#Move car up/down
-#Controls door
-#Knows location
-#Monitor floor button
-#Turns lamp on/off
-#Send car info to master
-#Receives floor stop list from master
+<p>
+Move car up/down<br>
+Controls door<br>
+Knows location<br>
+Monitor floor button<br>
+Turns lamp on/off<br>
+Send car info to master<br>
+Receives floor stop list from master<br>
+</p>
 
 CAR 2 control (Raspberry PI)
-
-#Move car up/down
-#Controls door
-#Knows location
-#Monitor floor button
-#Turns lamp on/off
-#Send car info to master
-#Receives floor stop list from master
-
+<p>
+Move car up/down<br>
+Controls door<br>
+Knows location<br>
+Monitor floor button<br>
+Turns lamp on/off<br>
+Send car info to master<br>
+Receives floor stop list from master<br>
+</p>
 
 Monitor Hallway Buttons (Raspberry PI)
-
-#Controls Hall Way LAMP
-#Send button info to master
+<p>
+Controls Hall Way LAMP<br>
+Send button info to master<br>
+</p>
