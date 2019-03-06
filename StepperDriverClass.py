@@ -1,4 +1,3 @@
-
 import time
 import RPi.GPIO as GPIO
 import config
@@ -48,8 +47,10 @@ class StepperDriverClass():
 		totalSteps = 0
 
 		if config.CarCurrentStepPosition > Position:
+			#Sets the stepper direction to down
 			stepDir = -1
 		else:
+			#Sets the stepper direction to up
 			stepDir = 1
 
 		StepPins = [6,5,4,3]
@@ -58,16 +59,19 @@ class StepperDriverClass():
 			#Each loop will rotate one step
 
 			if not GPIO.input(7) and stepDir == -1:
-				#At bottome, input is low/false when switch closes
+				#At bottom, input is low/false when switch closes
 				# can't go lower than bottom
-				print("at bottom limit")
+				print("bottom limit reached")
 				config.CarCurrentStepPosition = 0
 				return
 			elif not GPIO.input(8) and stepDir == 1:
-				print("top limit")
+				#At top, input is high/true when switch closes
+				# can't go higher than top
+				print("top limit reached")
 				print (config.CarCurrentStepPosition)
 				return
 
+			#TODO: Figure out this code block
 			for pin in range(0, 4):
 				xpin = StepPins[pin]
 				if self.Seq[self.StepSeqCounter][pin]!=0:

@@ -24,6 +24,7 @@ def CarManager():
 	CurrentStepPosition = 0
 	time.sleep(.5)
 
+	#Setting parameters for directions, height of elevator, and initial position
 	up = 1
 	down = -1
 	topFloor = 5
