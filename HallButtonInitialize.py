@@ -31,16 +31,16 @@ def HallButtonInitialize():
 	GPIO.setup(10, GPIO.IN, pull_up_down=GPIO.PUD_UP)  
 
 	#UP
-	GPIO.add_event_detect(3,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
-	GPIO.add_event_detect(4,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
-	GPIO.add_event_detect(5,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
-	GPIO.add_event_detect(6,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400) 
+	GPIO.add_event_detect(3,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
+	GPIO.add_event_detect(4,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
+	GPIO.add_event_detect(5,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
+	GPIO.add_event_detect(6,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400) 
 	
 	#Down
-	GPIO.add_event_detect(7,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
-	GPIO.add_event_detect(8,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
-	GPIO.add_event_detect(9,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
-	GPIO.add_event_detect(10, GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
+	GPIO.add_event_detect(7,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
+	GPIO.add_event_detect(8,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
+	GPIO.add_event_detect(9,  GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
+	GPIO.add_event_detect(10, GPIO.RISING, callback=HallButtonCallBack, bouncetime=400)  
 	
 	print ('HallButton Initialize: Completed')
 
