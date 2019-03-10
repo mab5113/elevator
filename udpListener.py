@@ -33,10 +33,10 @@ def myListener():
 	while True:
 		msg, addr = sock.recvfrom(1024)	# buffer size is 1024 bytes
 		m = msg.decode('utf-8')
-		print (m)
-		print (addr)
-		if m == '29':
-			HallLampCallBack(int(m))
+		#print (m)
+		#print (addr)
+		#if m == '':
+		HallLampCallBack(int(m))
 		#config.test=m
 		#print (config.test)
 		if m == 'quit':

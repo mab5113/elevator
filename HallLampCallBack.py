@@ -7,7 +7,8 @@ import config
 
 lampPin = 0
 
-def HallLampCallBack(channel):  
+def HallLampCallBack(channel):
+	print("HallLampCallBack: Channel ", channel)
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers 
