@@ -7,7 +7,7 @@ import config
 
 lampPin = 0
 
-def HallLampCallBack(channel):
+def HallButtonCallBack(channel):
 	print("HallLampCallBack: Channel ", channel)
 
 	# Use BCM GPIO references
@@ -56,7 +56,7 @@ def HallLampCallBack(channel):
 		config.HallStopList[floor] = 1
 	
 	# Display floor number pressed
-	print("HallLampCallBack: Pressed ", floor)
+	print("HallButtonCallBack: Pressed ", floor)
 
 	
 	if config.HallStopList[floor] != 0:
@@ -66,4 +66,4 @@ def HallLampCallBack(channel):
 		config.HallStopList[floor]=1
 		GPIO.output(lampPin,True)
 	
-	print ("HallLampCallBack: ", config.HallStopList)
+	print ("HallButtonCallBack: ", config.HallStopList)
