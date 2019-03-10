@@ -3,9 +3,10 @@ import RPi.GPIO as GPIO
 import config
 
 # Allow for hystersis of the limit switches
-#  It will take n steps for the limit switch to open
+#  It will take n steps for the limit switch to actually open
 # LimitSwitchHystersis = 300
 
+#class StepperDriverClass(steps, stepPins, limitPins):
 class StepperDriverClass():
 	#Initializes starting position and counter for steps taken
 	currentPosition = 0
@@ -71,7 +72,7 @@ class StepperDriverClass():
 			#TODO: Figure out this code block
 			for pin in range(0, 4):
 				xpin = StepPins[pin]
-				if self.Seq[self.StepSeqCounter][pin]!=0:
+				if self.Seq[self.StepSeqCounter][pin] != 0:
 					GPIO.output(xpin, True)
 				else:
 					GPIO.output(xpin, False)
@@ -88,4 +89,4 @@ class StepperDriverClass():
 			config.CarCurrentStepPosition += stepDir
 
 			
-			time.sleep(config.CarStepWaitTime) # Wait before moving on
+			time.sleep(config.CarStepWaitTime) # Wait before moving on to next step
