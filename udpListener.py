@@ -1,7 +1,7 @@
 import config
 import socket
 import threading
-from HallLampCallBack import HallLampCallBack
+from HallButtonCallBack import HallButtonCallBack
 
 class myThread (threading.Thread):
 	def __init__(self, threadID, name, counter):
@@ -16,6 +16,7 @@ class myThread (threading.Thread):
 		threadlock.release()
 
 	def stop(self):
+		print ("udp listener thread exiting")
 		exit()
 
 
@@ -36,7 +37,7 @@ def myListener():
 		#print (m)
 		#print (addr)
 		#if m == '':
-		HallLampCallBack(int(m))
+		HallButtonCallBack(int(m))
 		#config.test=m
 		#print (config.test)
 		if m == 'quit':
