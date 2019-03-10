@@ -1,8 +1,5 @@
-#http://www.ironpython.info/index.php?title=Sending_Udp_Packets
-
 import socket
 import time
-import CarLampCallBack
 
 def send(message):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
@@ -11,4 +8,3 @@ def send(message):
 send('6')
 time.sleep(.3)
 send("quit")
-
