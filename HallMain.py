@@ -1,7 +1,9 @@
 
+from HallButtonInitialize import HallButtonInitialize
 from HallLampInitialize import HallLampInitialize
 
 HallLampInitialize()
+HallButtonInitialize()
 
 try:   	
 	while True:
