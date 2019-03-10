@@ -21,7 +21,7 @@ class myThread (threading.Thread):
 
 
 def myListener():
-#	UDP_IP = "192.168.254.69"
+#	UDP_IP = config.ipHall
 	UDP_IP = "0.0.0.0"
 	UDP_PORT = 5005
  
@@ -41,6 +41,7 @@ def myListener():
 		#config.test=m
 		#print (config.test)
 		if m == 'quit':
+			print ("Received quit message, exiting udp Listener")
 			thread1.stop()
 			pass
 
