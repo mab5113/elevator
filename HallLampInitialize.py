@@ -3,6 +3,7 @@
 #   Use pin names in config - no magic pin numbers
 
 import RPi.GPIO as GPIO
+import time
 
 def HallLampInitialize():
 
