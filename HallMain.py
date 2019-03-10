@@ -3,11 +3,9 @@ from HallButtonInitialize import HallButtonInitialize
 from HallLampInitialize import HallLampInitialize
 from udpListener import udpListener
 
-
 HallLampInitialize()
 HallButtonInitialize()
 udpListener()
-
 
 try:   	
 	while True:
