@@ -21,8 +21,8 @@ class myThread (threading.Thread):
 
 
 def myListener():
+	UDP_IP = "192.168.254.69"
 #	UDP_IP = "0.0.0.0"
-	UDP_IP = "0.0.0.0"
 	UDP_PORT = 5006
  
 	sock = socket.socket(socket.AF_INET, # Internet
