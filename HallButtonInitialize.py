@@ -3,6 +3,7 @@
 #   Use pin names in config - no magic pin numbers
 
 #import time
+from HallButtonCallBack import HallButtonCallBack
 import RPi.GPIO as GPIO
 
 def HallButtonInitialize():
