@@ -1,6 +1,7 @@
 import config
 import socket
 import threading
+from HallLampCallBack import HallLampCallBack
 
 class myThread (threading.Thread):
 	def __init__(self, threadID, name, counter):
@@ -15,12 +16,13 @@ class myThread (threading.Thread):
 		threadlock.release()
 
 	def stop(self):
-		sys.exit()
+		exit()
 
 
 def myListener():
-	UDP_IP = "10.81.104.120"
-	UDP_PORT = 5017
+#	UDP_IP = "192.168.254.69"
+	UDP_IP = "0.0.0.0"
+	UDP_PORT = 5005
  
 	sock = socket.socket(socket.AF_INET, # Internet
                       socket.SOCK_DGRAM) # UDP Datagram
@@ -30,11 +32,13 @@ def myListener():
 
 	while True:
 		msg, addr = sock.recvfrom(1024)	# buffer size is 1024 bytes
-		m = str(msg)  #.decode('utf-8')
+		m = msg.decode('utf-8')
 		print (m)
 		print (addr)
-		config.test=m
-		print (config.test)
+		if m == '29':
+			HallLampCallBack(int(m))
+		#config.test=m
+		#print (config.test)
 		if m == 'quit':
 			thread1.stop()
 			pass

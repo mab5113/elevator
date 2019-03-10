@@ -2,13 +2,9 @@ import time
 import RPi.GPIO as GPIO
 import config
 
-
 # Allow for hystersis of the limit switches
 #  It will take n steps for the limit switch to open
 # LimitSwitchHystersis = 300
-
-
-
 
 class StepperDriverClass():
 	#Initializes starting position and counter for steps taken
@@ -56,7 +52,7 @@ class StepperDriverClass():
 
 		StepPins = [6,5,4,3]
 							   
-		while config.CarCurrentStepPosition <> Position:
+		while config.CarCurrentStepPosition != Position:
 			#Each loop will rotate one step
 
 			if not GPIO.input(7) and stepDir == -1:

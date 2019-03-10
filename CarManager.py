@@ -8,6 +8,7 @@ import random
 import time
 import config
 import RPi.GPIO as GPIO
+# import keyboard  # using module keyboard
 
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager
@@ -80,12 +81,20 @@ def CarManager():
 		if floor ==0:
 			direction = up
 			floor =  floor + direction
-	
-                print ('CarManager: ', floor)
-		
+
+		print ('CarManager: ', floor)
+
 		#code to exercise the elevator
 		#f = random.randint(1,5)
 		#config.FloorStopList[f] = 1
 		#CarLampManager(f, 1)
-
 		print (config.FloorStopList)
+
+	while True:  # making a loop
+		if keyboard.is_pressed('q'):  # if key 'q' is pressed 
+			print('You Pressed A Key!')
+			break  # finishing the loop
+		time.sleep(2)
+		print('No key Pressed!')
+
+

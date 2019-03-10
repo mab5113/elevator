@@ -16,7 +16,7 @@ def HallLampCallBack(channel):
 	GPIO.setmode(GPIO.BCM)	
 	GPIO.setwarnings(False)
 			
-	# What does rising edge refer to?
+	# TODO:Explain what does rising edge refer to?
 	print ("HallLampCallBack: Rising edge detected on port: ",channel)  
 	floor = 0
 	
@@ -58,7 +58,7 @@ def HallLampCallBack(channel):
 	print("HallLampCallBack: Pressed ", floor)
 
 	
-	if config.HallStopList[floor] <> 0:
+	if config.HallStopList[floor] != 0:
 		config.HallStopList[floor]=0
 		GPIO.output(lampPin,False)
 	else:

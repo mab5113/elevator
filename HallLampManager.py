@@ -9,8 +9,7 @@ from HallLampCallBack import HallLampCallBack
 def HallLampManager():
 
 	print ('HallLampInitialize: initialize')
-	# Use BCM GPIO references
-	# instead of physical pin numbers
+	# Use BCM GPIO references instead of physical pin numbers
 	#GPIO.setmode(GPIO.BOARD)
 	
 	GPIO.setmode(GPIO.BCM)
@@ -62,6 +61,14 @@ def HallLampManager():
 	GPIO.add_event_detect(9,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
 	GPIO.add_event_detect(10, GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
 
-	while True:
-		time.sleep(.5)
-
+	try:   	
+		while True:
+			time.sleep(.5)
+			#print ('.')
+			pass # do the loop here
+	except KeyboardInterrupt:
+		# This will catch the ctrl-c to allow clean-up
+		print ('Done')
+		# do cleanup here
+		pass 
+		
