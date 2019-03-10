@@ -5,42 +5,64 @@
 import RPi.GPIO as GPIO
 import config
 
+lampPin = 0
+
 def HallLampCallBack(channel):  
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers 
 	# GPIO.setmode(GPIO.BOARD)
 	
-	GPIO.setmode(GPIO.BCM)	# Use pin numbering, not GPIO numbers
+	GPIO.setmode(GPIO.BCM)	
 	GPIO.setwarnings(False)
 			
 	# What does rising edge refer to?
 	print ("HallLampCallBack: Rising edge detected on port: ",channel)  
 	floor = 0
 	
-	# DOWN BUTTONS			
-	if channel   == 3: floor=2
-	elif channel == 4: floor=3
-	elif channel == 5: floor=4
-	elif channel == 6: floor=5
-	elif channel == 2: floor=1
+	# DOWN BUTTONS (there is no floor 1 down button
+	if   channel == 3:
+		floor= -2
+		lampPin = 11
+	elif channel == 4:
+		floor= -3
+		lampPin = 12
+	elif channel == 5:
+		floor= -4
+		lampPin = 13
+	elif channel == 6:
+		floor= -5
+		lampPin = 14
 			
-	#UP BUTTONS		
-	if channel   == 7: floor=1
-	elif channel == 8: floor=2
-	elif channel == 9: floor=3
-	elif channel == 10: floor=4
-	elif channel == 11: floor=5
-	
-	# Displays floor number pressed
-	print("HallLampCallBack: ", floor)
-	
-	pin=config.CarLampsPins[floor]
-	if config.FloorStopList[floor] == 0:
-		config.FloorStopList[floor]=1
-		GPIO.output(pin,False)
+	#UP BUTTONS (there is no floor 5 up button)
+	if   channel ==  7:
+		floor=1
+		lampPin = 15
+	elif channel ==  8:
+		floor=2
+		lampPin = 16
+	elif channel ==  9:
+		floor=3
+		lampPin = 17
+	elif channel == 10:
+		floor=4
+		lampPin = 18
+
+	if floor < 0:
+		config.HallStopList[floor] = -1
+		floor = abs(floor)
 	else:
-		config.FloorStopList[floor]=0
-		GPIO.output(pin,True)
+		config.HallStopList[floor] = 1
 	
-	print ("HallLampCallBack: ", config.FloorStopList)
+	# Display floor number pressed
+	print("HallLampCallBack: Pressed ", floor)
+
+	
+	if config.HallStopList[floor] <> 0:
+		config.HallStopList[floor]=0
+		GPIO.output(lampPin,False)
+	else:
+		config.HallStopList[floor]=1
+		GPIO.output(lampPin,True)
+	
+	print ("HallLampCallBack: ", config.HallStopList)

@@ -4,7 +4,7 @@
 import config
 import os
 import RPi.GPIO as GPIO
-import HallLampInitialize
+from HallLampManager import HallLampManager
 from CarMain import CarMain
 
 
@@ -54,7 +54,7 @@ if id == 0:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: Hallway ID found --> starting HallMain()')
-#	HallLampInitialize()
+	HallLampManager()
 
 elif id == 1:
 	ipAddress= config.IpCar1

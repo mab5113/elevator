@@ -1,7 +1,7 @@
 # Global identifiers to be imported int module
 
-FloorStopList = [0,0,1,0,0,0]
-HallStopList = [0,0,0,0,0,0]
+FloorStopList = [0,0,0,0,0,0]
+HallStopList  = [0,0,0,0,0,0]
 
 # Car1 is position 1 in the list
 # Car 2 is postion 2 in the list

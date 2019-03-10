@@ -2,10 +2,11 @@
 #   Describe this Module
 #   Use pin names in config - no magic pin numbers
 
+import time
 import RPi.GPIO as GPIO
 from HallLampCallBack import HallLampCallBack
 
-def HallLampInitialize():
+def HallLampManager():
 
 	print ('HallLampInitialize: initialize')
 	# Use BCM GPIO references
@@ -60,3 +61,7 @@ def HallLampInitialize():
 	GPIO.add_event_detect(8,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
 	GPIO.add_event_detect(9,  GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
 	GPIO.add_event_detect(10, GPIO.RISING, callback=HallLampCallBack, bouncetime=400)  
+
+	while True:
+		time.sleep(.5)
+
