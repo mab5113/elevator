@@ -1,4 +1,5 @@
 
+from HallLampInitialize import HallLampInitialize
 
 HallLampInitialize()
 
