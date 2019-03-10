@@ -6,7 +6,7 @@ import time
 import RPi.GPIO as GPIO
 from HallLampCallBack import HallLampCallBack
 
-def HallLampInitialize():
+def HallButtonInitialize():
 
 	print ('HallLampInitialize: initialize')
 	# Use BCM GPIO references instead of physical pin numbers
