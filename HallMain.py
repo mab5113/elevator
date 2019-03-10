@@ -5,7 +5,7 @@ from udpListener import myListener
 
 HallLampInitialize()
 HallButtonInitialize()
-udpListener()
+myListener()
 
 try:   	
 	while True:
