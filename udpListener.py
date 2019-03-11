@@ -47,15 +47,15 @@ def myListener():
 		if msg.startswith('hbp'):
 			floor = s[1]
 			if   floor == '-2': pin = 3
-			elif floor == '-3': pin= 4
-			elif floor == '-4': pin= 5
-			elif floor == '-5': pin= 6
+			elif floor == '-3': pin = 4
+			elif floor == '-4': pin = 5
+			elif floor == '-5': pin = 6
 
 			#UP BUTTONS (there is no floor 5 up button)
-			elif floor ==  '1': pin=7
-			elif floor ==  '2': pin=8
-			elif floor ==  '3': pin=9
-			elif floor ==  '4': pin=10
+			elif floor ==  '1': pin = 7
+			elif floor ==  '2': pin = 8
+			elif floor ==  '3': pin = 9
+			elif floor ==  '4': pin = 10
 			HallButtonCallBack(pin)
 			
 		#config.test=msg
