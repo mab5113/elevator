@@ -35,7 +35,7 @@ def myListener():
 	while True:
 		msg, addr = sock.recvfrom(1024)	# buffer size is 1024 bytes
 		m = msg.decode('utf-8')
-		#print (m)
+		print (m)
 		#print (addr)
 		#if m == '':
 		HallButtonCallBack(int(m))
