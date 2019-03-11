@@ -51,16 +51,17 @@ def HallButtonCallBack(channel):
 	elif channel == 10:
 		floor = 4
 		lampPin = 18
-
-	config.HallStopList[abs(floor)] = floor
-	
+		
 	# Display floor number pressed
 	print("HallButtonCallBack: Pressed floor: ", floor)
 
-	
-	if config.HallStopList[floor] == 0:
-		GPIO.output(lampPin,False)
+
+	if floor < 0:
+		config.HallStopListDown[abs(floor)] = floor
+		GPIO.output(lampPin,False)		
 	else:
-		GPIO.output(lampPin,True)
+		config.HallStopListUp[abs(floor)] = floor
+		GPIO.output(lampPin,True)	
 	
-	print ("HallButtonCallBack: ", config.HallStopList)
+	print ("HallButtonCallBack:   UP --> ", config.HallStopListUp)
+	print ("HallButtonCallBack: Down --> ", config.HallStopListDown)
