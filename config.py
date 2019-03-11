@@ -1,8 +1,12 @@
 # Global identifiers to be imported int module
 
-FloorStopList   = [0,0,0,0,0,0]
-HallStopList    = [0,0,0,0,0,0]
-carCurrentFloor =  [0,0,0,0,0,0]
+FloorStopList    = [0,0,0,0,0,0]
+CarFloorStopList = [0,0,0,0,0,0]
+
+HallStopListUp   = [0,0,0,0,0,0]
+HallStopListDown = [0,0,0,0,0,0]
+
+CarCurrentFloor   =  [0,0,0,0,0,0]
 
 
 # floor positions for the stepper motor
