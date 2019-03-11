@@ -4,7 +4,7 @@ import config
 
 # Allow for hystersis of the limit switches
 #  It will take n steps for the limit switch to actually open
-# LimitSwitchHystersis = 300
+# LimitSwitchHystersis = 300 <---- Not needed
 
 #class StepperDriverClass(steps, stepPins, limitPins):
 class StepperDriverClass():
@@ -54,19 +54,24 @@ class StepperDriverClass():
 		StepPins = [6,5,4,3]
 							   
 		while config.CarCurrentStepPosition != Position:
-			#Each loop will rotate one step
+			#Each loop will rotate the stepper motor one step
 
 			if not GPIO.input(7) and stepDir == -1:
 				#At bottom, input is low/false when switch closes
 				# can't go lower than bottom
 				print("bottom limit reached")
 				config.CarCurrentStepPosition = 0
+				for pin in StepPins:
+					GPIO.output(pin, False)
 				return
 			elif not GPIO.input(8) and stepDir == 1:
 				#At top, input is high/true when switch closes
 				# can't go higher than top
 				print("top limit reached")
 				print (config.CarCurrentStepPosition)
+				for pin in StepPins:
+					GPIO.output(pin, False)
+
 				return
 
 			#TODO: Figure out this code block
@@ -90,3 +95,8 @@ class StepperDriverClass():
 
 			
 			time.sleep(config.CarStepWaitTime) # Wait before moving on to next step
+		
+		#make sure motor is not drawing current
+		for pin in StepPins:
+			GPIO.output(pin, False)
+
