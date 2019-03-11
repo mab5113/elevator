@@ -8,7 +8,7 @@ import config
 lampPin = 0
 
 def HallButtonCallBack(channel):
-	print("HallLampCallBack: Channel ", channel)
+	print("HallButtonCallBack: Channel ", channel)
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers 
@@ -16,9 +16,12 @@ def HallButtonCallBack(channel):
 	
 	GPIO.setmode(GPIO.BCM)	
 	GPIO.setwarnings(False)
+	
+	buttonsDown = [0,3,4,5,6]
+	buttonsUp   = [0,7,8,9,10]
 			
 	# TODO:Explain what does rising edge refer to?
-	print ("HallLampCallBack: Rising edge detected on port: ",channel)  
+	print ("HallButtonCallBack: Rising edge detected on port: ",channel)  
 	floor = 0
 	
 	# DOWN BUTTONS (there is no floor 1 down button
@@ -36,7 +39,7 @@ def HallButtonCallBack(channel):
 		lampPin = 14
 			
 	#UP BUTTONS (there is no floor 5 up button)
-	if   channel ==  7:
+	elif   channel ==  7:
 		floor=1
 		lampPin = 15
 	elif channel ==  8:
