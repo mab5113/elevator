@@ -34,17 +34,21 @@ def myListener():
 
 	while True:
 		msg, addr = sock.recvfrom(1024)	# buffer size is 1024 bytes
-		m = msg.decode('utf-8')
-		print (m)
-		#print (addr)
-		#if m == '':
-		HallButtonCallBack(int(m))
-		#config.test=m
-		#print (config.test)
-		if m == 'quit':
+		msg = msg.decode('utf-8')
+		print (msg)
+		if msg == 'quit':
 			print ("Received quit message, exiting udp Listener")
 			thread1.stop()
 			pass
+		
+		#print (addr)
+		if msg.startswith('hbp'):
+			s = split(',', msg)
+			print (s)
+			#HallButtonCallBack(int(msg))
+		#config.test=msg
+		#print (config.test)
+
 
 
 threadlock = threading.Lock()
