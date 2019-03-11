@@ -27,6 +27,7 @@ def myListener():
  
 	sock = socket.socket(socket.AF_INET, # Internet
                       socket.SOCK_DGRAM) # UDP Datagram
+	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	sock.bind((UDP_IP, UDP_PORT))
  
 	print ("starting udp listener")
