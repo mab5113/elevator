@@ -44,7 +44,8 @@ def myListener():
 		#print (addr)
 		if msg.startswith('hbp'):
 			s = split(',', msg)
-			print (len(s),s)
+			print (len(s))
+			print (s)
 			#HallButtonCallBack(int(msg))
 		#config.test=msg
 		#print (config.test)
