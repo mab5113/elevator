@@ -6,9 +6,9 @@ def send(message):
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	sock.sendto(message.encode(), ("192.168.254.69", 5005))
 
-floor = -99
-while floor != 0:
-	floor = input("Floor Number: ")
-	send(str(floor))
+floor = ""
+while floor != "-99":
+	floor = str(input("Floor Number: "))
+	send(floor)
 # time.sleep(.3)
 #send("quit")
