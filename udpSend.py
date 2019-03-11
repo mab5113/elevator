@@ -9,6 +9,6 @@ def send(message):
 floor = -99
 while floor != 0:
 	floor = input("Floor Number: ")
-	send(floor)
+	send(str(floor))
 # time.sleep(.3)
 #send("quit")
