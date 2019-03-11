@@ -21,7 +21,7 @@ def HallButtonCallBack(channel):
 	buttonsUp   = [0,7,8,9,10]
 			
 	# TODO:Explain what does rising edge refer to?
-	print ("HallButtonCallBack: Rising edge detected on port: ",channel)  
+	print ("HallButtonCallBack: Floor request detected on channel: ",channel)  
 	floor = 0
 	
 	# DOWN BUTTONS (there is no floor 1 down button
