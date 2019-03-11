@@ -8,4 +8,4 @@ def send(message):
 
 send('6')
 time.sleep(.3)
-send("quit")
+#send("quit")
