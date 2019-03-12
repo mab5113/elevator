@@ -14,6 +14,7 @@ def CarLampInitialize():
 	GPIO.setup(22,GPIO.OUT)
 	GPIO.setup(23,GPIO.OUT)
 	
+	#Turn on the Car button/lamps
 	GPIO.output(19,False)
 	GPIO.output(20,False)
 	GPIO.output(21,False)
@@ -22,6 +23,7 @@ def CarLampInitialize():
 
 	time.sleep(2)
 
+	#Turn off the Car button/lamps
 	GPIO.output(19,True)
 	GPIO.output(20,True)
 	GPIO.output(21,True)
