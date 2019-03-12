@@ -4,11 +4,13 @@
  
 # Import required libraries
 from CarManager import CarManager
-from CarLampMonitor import CarLampMonitor
+from CarLampInitialize import CarLampInitialize
+from CarButtonInitialize import CarButtonInitialize
 from udpListener import *
 	
 def CarMain(carID,ipAddress):
 	print ('Starting CarMain')
-	CarLampMonitor()
-	main()
+	CarButtonIntialize()
+	CarLampInitialize()
+	udpListenerMain()
 	CarManager()
