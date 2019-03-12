@@ -36,13 +36,10 @@ if not GPIO.input(25):
 else:
 	id2=0
 
-
 #Convert inputs  to a binary number
 id= id1 + id2 * 2
 
 print(' ID1:', id1, '  ID2:', id2, '   ID:', id)
-
-# config.FloorStopList[0] = 200
 
 print (config.FloorStopList)
 
@@ -84,6 +81,4 @@ elif id == 3:
 	print ('')
 	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
 	#CarMain(id,ipAddress)
-
-
-#def CarStartUp():
+	
