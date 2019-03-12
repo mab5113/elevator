@@ -59,13 +59,13 @@ def myListener():
 		#config.test=msg
 		#print (config.test)
 
-def main():
+def udpListener():
 	threadlock = threading.Lock()
 	thread1= myThread(1,"Thread1", 1)
 	thread1.start()
 	print ("udpListener: udp listener thread started")
 
-main()
+#main()
 
 #text = "start"
 #while text <> "end":
