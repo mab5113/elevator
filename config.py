@@ -9,15 +9,20 @@ HallStopListDown = [0,0,0,0,0,0]
 CarCurrentFloor   =  [0,0,0,0,0,0]
 
 CarLampsPins=[0,19,20,21,22,23]
+CarButtonPins[0,14,15,16,17,18]
 
+#when car is initialized (brought on-line)
+# Its availability is listed here
+CarsIdRegistration = [0,0,0,0,0,0,0,0]
+	
 # floor positions for the stepper motor
 #  convet to lists (of lists) so each car can have its own list
 FloorStepList=[0,-10000,2200,4400,5000,10000]
 
-CarCurrentStatus = 'stopped'
-CarCurrentStepPosition = 0
-CarStepWaitTime = .0015
-CarTopPosition = 7400
+CarCurrentStatus = [0,0,0,0,0,0,0,0]
+CarCurrentStepPosition =[0,0,0,0,0,0,0,0]
+CarStepWaitTime = [0, .0015, .0015, .0015, .0015, .0015, .0015, .0015] .0015
+CarTopPosition = [0,7400,7400,7400,7400,7400,7400,7400,7400,7400,7400]
 
 IpHall='192.168.254.69/24'
 
