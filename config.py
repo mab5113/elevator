@@ -6,10 +6,10 @@ CarFloorStopList = [0,0,0,0,0,0]
 HallStopListUp   = [0,0,0,0,0,0]
 HallStopListDown = [0,0,0,0,0,0]
 
-CarCurrentFloor   =  [0,0,0,0,0,0]
+CarCurrentFloor  = [0,0,0,0,0,0]
 
-CarLampsPins=[0,19,20,21,22,23]
-CarButtonPins[0,14,15,16,17,18]
+CarLampsPins  = [0,19,20,21,22,23]
+CarButtonPins = [0,14,15,16,17,18]
 
 #when car is initialized (brought on-line)
 # Its availability is listed here
