@@ -10,7 +10,7 @@ from udpListener import *
 	
 def CarMain(carID,ipAddress):
 	print ('Starting CarMain')
-	CarButtonIntialize()
+	CarButtonInitialize()
 	CarLampInitialize()
 	udpListenerMain()
 	CarManager()
