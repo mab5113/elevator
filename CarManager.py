@@ -51,13 +51,13 @@ def CarManager():
 				Car.move2Position(-1000)
           
 			elif floor == 2:
-				Car.move2Position(config.CarTopPosition/4)
+				Car.move2Position(config.CarTopPosition[1]/4)
 
 			elif floor == 3:
-				Car.move2Position(config.CarTopPosition / 4 * 2)
+				Car.move2Position(config.CarTopPosition[1] / 4 * 2)
 
 			elif floor == 4:
-				Car.move2Position(config.CarTopPosition / 4 * 3)
+				Car.move2Position(config.CarTopPosition[1] / 4 * 3)
 
 
 			elif floor == 5:
