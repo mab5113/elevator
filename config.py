@@ -8,6 +8,7 @@ HallStopListDown = [0,0,0,0,0,0]
 
 CarCurrentFloor   =  [0,0,0,0,0,0]
 
+CarLampsPins=[0,19,20,21,22,23]
 
 # floor positions for the stepper motor
 #  convet to lists (of lists) so each car can have its own list
@@ -18,7 +19,6 @@ CarCurrentStepPosition = 0
 CarStepWaitTime = .0015
 CarTopPosition = 7400
 
-CarFloorLampsPins=[0,19,20,21,22,23]
 IpHall='192.168.254.69/24'
 
 #IpHall='10.81.104.31/24'
