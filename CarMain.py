@@ -10,5 +10,5 @@ from udpListener import *
 def CarMain(carID,ipAddress):
 	print ('Starting CarMain')
 	CarLampMonitor()
-	udpListener()
+	main()
 	CarManager()
