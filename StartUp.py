@@ -23,8 +23,8 @@ GPIO.setup(25,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 # Read IO port if find ID
 id1in = GPIO.input(24)
 id2in = GPIO.input(25)
-print ('id1in: ', id1in)
-print ('id1in: ', id2in)
+print ('StartUp: id1in: ', id1in)
+print ('StartUp: id1in: ', id2in)
 
 if not GPIO.input(24):
 	id1=1
@@ -53,7 +53,7 @@ if id == 0:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: Hallway ID found --> starting HallMain()')
-	HallMain()
+	#HallMain()
 
 elif id == 1:
 	ipAddress= config.IpCar1
