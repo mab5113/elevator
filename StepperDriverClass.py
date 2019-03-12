@@ -92,9 +92,8 @@ class StepperDriverClass():
 	
 			totalSteps += 1
 			config.CarCurrentStepPosition += stepDir
-
 			
-			time.sleep(config.CarStepWaitTime) # Wait before moving on to next step
+			time.sleep(config.CarStepWaitTime[1]) # Wait before moving on to next step
 		
 		#make sure motor is not drawing current
 		for pin in StepPins:
