@@ -4,6 +4,7 @@
 #   Describe reason for the StepperDriverClass
 #   Add recommendations for identifier names
 
+import socket
 import random
 import time
 import config
@@ -13,6 +14,10 @@ import RPi.GPIO as GPIO
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager
 
+def send(message):
+	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+	sock.sendto(message.encode(), ("192.168.254.81", 5005))
 
 
 def CarManager():
@@ -51,20 +56,25 @@ def CarManager():
 			
 			if floor == 1:
 				Car.move2Position(-1000)
+				send('moving to floor ', floor
           
 			elif floor == 2:
 				Car.move2Position(config.CarTopPosition[1]/4)
-
+				send('moving to floor ', floor
+  
 			elif floor == 3:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 2)
-
+				send('moving to floor ', floor
+  
 			elif floor == 4:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 3)
-
+				send('moving to floor ', floor
+  
 
 			elif floor == 5:
 				Car.move2Position(100000)
-
+				send('moving to floor ', floor
+  
 			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'
 			CarLampManager(floor, 0)
