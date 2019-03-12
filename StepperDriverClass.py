@@ -44,7 +44,7 @@ class StepperDriverClass():
 	def move2Position(self, Position):
 		totalSteps = 0
 
-		if config.CarCurrentStepPosition > Position:
+		if config.CarCurrentStepPosition[1] > Position:
 			#Sets the stepper direction to down
 			stepDir = -1
 		else:
@@ -53,14 +53,14 @@ class StepperDriverClass():
 
 		StepPins = [6,5,4,3]
 							   
-		while config.CarCurrentStepPosition != Position:
+		while config.CarCurrentStepPosition[1] != Position:
 			#Each loop will rotate the stepper motor one step
 
 			if not GPIO.input(7) and stepDir == -1:
 				#At bottom, input is low/false when switch closes
 				# can't go lower than bottom
 				print("bottom limit reached")
-				config.CarCurrentStepPosition = 0
+				config.CarCurrentStepPosition[1] = 0
 				for pin in StepPins:
 					GPIO.output(pin, False)
 				return
@@ -68,10 +68,9 @@ class StepperDriverClass():
 				#At top, input is high/true when switch closes
 				# can't go higher than top
 				print("top limit reached")
-				print (config.CarCurrentStepPosition)
+				print (config.CarCurrentStepPosition[1])
 				for pin in StepPins:
 					GPIO.output(pin, False)
-
 				return
 
 			#TODO: Figure out this code block
@@ -91,7 +90,7 @@ class StepperDriverClass():
 				self.StepSeqCounter = len(self.Seq) + stepDir
 	
 			totalSteps += 1
-			config.CarCurrentStepPosition += stepDir
+			config.CarCurrentStepPosition[1] += stepDir
 			
 			time.sleep(config.CarStepWaitTime[1]) # Wait before moving on to next step
 		
