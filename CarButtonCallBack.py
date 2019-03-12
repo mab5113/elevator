@@ -2,7 +2,7 @@ import time
 import RPi.GPIO as GPIO
 import config
 
-def CarLampCallBack(channel):  
+def CarButtonCallBack(channel):  
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers
