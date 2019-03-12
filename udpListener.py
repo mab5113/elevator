@@ -18,13 +18,10 @@ class myThread (threading.Thread):
 	def stop(self):
 		print ("udp listener thread exiting")
 		exit()
-
-
-
 def myListener():
 #	UDP_IP = "192.168.254.69"
-	UDP_IP = "0.0.0.0"
-	UDP_PORT = 5005
+	UDP_IP = "0.0.0.0"		# Listen to all incoming datagrams
+	UDP_PORT = 5005			# to this port
  
 	sock = socket.socket(socket.AF_INET, # Internet
                       socket.SOCK_DGRAM) # UDP Datagram
@@ -61,14 +58,10 @@ def myListener():
 			
 		#config.test=msg
 		#print (config.test)
-
-
-
 threadlock = threading.Lock()
 thread1= myThread(1,"Thread1", 1)
 thread1.start()
-print ("def myListener: udp listener thread started")
-
+print ("udpListener: udp listener thread started")
 
 #text = "start"
 #while text <> "end":
