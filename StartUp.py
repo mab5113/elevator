@@ -59,7 +59,8 @@ elif id == 1:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUp: Car Main 1 ID found --> Starting CarMain()')
-	CarMain.CarMain(id,ipAddress)
+	from CarMain import CarMain
+	CarMain(id,ipAddress)
 
 	#Car ID and ip address are passed as arguments to car main function
 
