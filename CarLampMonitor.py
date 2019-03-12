@@ -3,7 +3,7 @@
 
 import time
 import RPi.GPIO as GPIO
-#from CarLampCallBack import CarLampCallBack
+from CarLampCallBack import CarLampCallBack
 
 def CarLampMonitor():
 
