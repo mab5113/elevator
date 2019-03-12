@@ -56,24 +56,24 @@ def CarManager():
 			
 			if floor == 1:
 				Car.move2Position(-1000)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
           
 			elif floor == 2:
 				Car.move2Position(config.CarTopPosition[1]/4)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 			elif floor == 3:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 2)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 			elif floor == 4:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 3)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 
 			elif floor == 5:
 				Car.move2Position(100000)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'
