@@ -49,7 +49,7 @@ if id == 0:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: Hallway ID found --> starting HallMain()')
-	#HallMain()
+	HallMain()
 
 elif id == 1:
 	ipAddress= config.IpCar1
