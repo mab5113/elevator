@@ -56,7 +56,7 @@ def CarManager():
 			
 			if floor == 1:
 				Car.move2Position(-1000)
-				send('moving to floor ', floor
+				send('moving to floor ', floor)
           
 			elif floor == 2:
 				Car.move2Position(config.CarTopPosition[1]/4)
