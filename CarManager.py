@@ -13,6 +13,8 @@ import RPi.GPIO as GPIO
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager
 
+
+
 def CarManager():
 
 	Car=StepperDriverClass()
@@ -85,9 +87,10 @@ def CarManager():
 		print ('CarManager: ', floor)
 
 		#code to exercise the elevator
-		#f = random.randint(1,5)
-		#config.FloorStopList[f] = 1
-		#CarLampManager(f, 1)
+		f = random.randint(1,5)
+		config.FloorStopList[f] = 1
+		CarLampManager(f, 1)
+		time.sleep(1)
 		print (config.FloorStopList)
 
 	while True:  # making a loop
