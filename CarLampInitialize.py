@@ -1,7 +1,9 @@
+#!/usr/bin/python3
+
 import RPi.GPIO as GPIO
 import time
 
-def CarLampInitialize():
+def CarLampInitialize(id):
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers
