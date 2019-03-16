@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # callback handler for car button press 
 
-import time
+#import time
 import RPi.GPIO as GPIO
 import config
 
@@ -27,18 +27,18 @@ def CarButtonCallBack(channel):
 	"""
 	
 	floor = config.CarLampsPins.index(channel)
-	print('CarButtonCallBack: Floor -->', floor)
-	print ('CarButtonCallBack: old FloorStopList: ', config.FloorStopList)
+	print ('CarButtonCallBack: Floor -->', floor)
+	print ('CarButtonCallBack: old CarFloorStopList: ', config.FloorStopList)
 	
 	# If floor lamp indicator in car is off, Turn on and add set list to stop at floor
 	#If floor lamp indicator in car is on, Turn it off and remove from list 
 	lampPin=config.CarLampsPins[floor]
 	
-	if config.FloorStopList[floor] == 0:
-		config.FloorStopList[floor] = 1
+	if config.CarFloorStopList[floor] == 0:
+		config.CarFloorStopList[floor] = 1
 		GPIO.output(lampPin,False)
 	else:
-		config.FloorStopList[floor] = 0
+		config.CarFloorStopList[floor] = 0
 		GPIO.output(lampPin, True)
 	
-	print ('CarButtonCallBack: New FloorStopList: ', config.FloorStopList)
+	print ('CarButtonCallBack: New CarFloorStopList: ', config.FloorStopList)
