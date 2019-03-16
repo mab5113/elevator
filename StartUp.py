@@ -44,40 +44,44 @@ print(' ID:', id)
 print ('StartUp: floorStopList; ', config.FloorStopList)
 
 if id == 0:
+	#Hallway
 	ipAddress=config.IpHall
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: Hallway ID found --> starting HallMain()')
-	HallMain(id)
+	HallInitialize(id)
 
 elif id == 1:
+	# Car 1
 	ipAddress= config.IpCar1
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUp: Car Main 1 ID found --> Starting CarMain()')
-	CarMain(id)
+	CarInitialize(id)
 
 	#Car ID and ip address are passed as arguments to car main function
 
 elif id == 2:
+	# Car 2
 	ipAddress=config.IpCar2
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print('')
 	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
-	#CarMain(id)
+	CarInitialize(id)
 
 elif id == 3:
+	# Use to be determined
 	ipAddress=IpCar3
 	os.system('sudo ifconfig eth0 down')
 	os.system('sudo ifconfig eth0 ' + ipAddress)
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
-	#CarMain(id)
+	#CarInitialize(id)
 	
