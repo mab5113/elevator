@@ -5,8 +5,8 @@
 import config
 import os
 import RPi.GPIO as GPIO
-from CarMain import CarMain
-from HallMain import HallMain
+from CarInitialize import CarInitialize
+from HallInitialize import HallInitialize
 
 IDPin1=24
 IDPin2=25
