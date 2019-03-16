@@ -1,11 +1,8 @@
 import socket
 # import time
 
-def send(ip, message):
+def send(message, ip = "192.168.254.69"):
 	port = 5005
-	if ip == '':
-		ip = "192.168.254.69"
-		
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	
