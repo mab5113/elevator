@@ -4,8 +4,7 @@ from HallButtonInitialize import HallButtonInitialize
 from HallLampInitialize import HallLampInitialize
 from udpListener import myListener
 
-
-def HallMain(id):
+def HallInitialize(id):
 	HallLampInitialize(id)
 	HallButtonInitialize(id)
 	myListener(id)
@@ -17,6 +16,6 @@ def HallMain(id):
 			pass 
 	except KeyboardInterrupt:
 		# This will catch the ctrl-c to allow clean-up
-		print ('Done')
-		# do cleanup here
+		print ('Done,  exiting Hall Manager')
+		# do cleanup here before shutting down
 		pass 
