@@ -4,12 +4,11 @@
 #   Describe reason for the StepperDriverClass
 #   Add recommendations for identifier names
 
-import socket
 import random
 import time
 import config
 import RPi.GPIO as GPIO
-# import keyboard  # using module keyboard
+from udpSend import udpSend
 
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager
@@ -18,7 +17,6 @@ def send(message):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	sock.sendto(message.encode(), ("192.168.254.81", 5005))
-
 
 def CarManager(id):
 	
@@ -40,11 +38,6 @@ def CarManager(id):
 	floor = 1
 	direction = 1
 
-	config.FloorStopList[1] = 0
-	config.FloorStopList[2] = 0
-	config.FloorStopList[3] = 0
-	config.FloorStopList[4] = 0
-	config.FloorStopList[5] = 0
 
 	print ('CarManager: Starting main loop')
 
@@ -53,8 +46,8 @@ def CarManager(id):
 		
 		# TODO:  convert this code to process without if statements
 		
-		if config.FloorStopList[floor] == 1:
-			config.FloorStopList[floor] = 0
+		if config.CarFloorStopList[floor] == 1:
+			config.CarFloorStopList[floor] = 0
 			print ('CarManager: Moving to floor ', floor)
 			
 			if floor == 1:
@@ -84,8 +77,8 @@ def CarManager(id):
 		time.sleep(.5)
 
 		
-		# config.FloorStopList[0] = config.FloorStopList[0] + 1
-		# print (config.FloorStopList)
+		# config.CarFloorStopList[0] = config.CarFloorStopList[0] + 1
+		# print (config.CarFloorStopList)
 
 		# floor will start at 0, this makes it so the first floor will be 1, etc
 		floor = floor + direction
@@ -101,10 +94,10 @@ def CarManager(id):
 
 		#code to exercise the elevator
 		f = random.randint(1,5)
-		config.FloorStopList[f] = 1
+		config.CarFloorStopList[f] = 1
 		CarLampManager(f, 1)
 		time.sleep(1)
-		print (config.FloorStopList)
+		print (config.CarFloorStopList)
 
 	while True:  # making a loop
 		if keyboard.is_pressed('q'):  # if key 'q' is pressed 
