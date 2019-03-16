@@ -16,12 +16,12 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 #Setup RPi device I/O
-GPIO.setup(24,GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(25,GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(IDPin1,GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(IDPin2,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # Read IO ports if find ID
-id1in = GPIO.input(24)
-id2in = GPIO.input(25)
+id1in = GPIO.input(IDPin1)
+id2in = GPIO.input(IDPin2)
 
 # Switch closure will pull the port to ground (0 Volts)
 #  This same as logic false
@@ -39,7 +39,7 @@ else: 			id2=0
 #Convert inputs  to a binary number
 id= id1 + id2 * 2
 
-print(' ID1:', id1, '  ID2:', id2, '   ID:', id)
+print(' ID:', id)
 
 print ('StartUp: floorStopList; ', config.FloorStopList)
 
@@ -50,7 +50,7 @@ if id == 0:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUP: Hallway ID found --> starting HallMain()')
-	HallMain()
+	HallMain(id)
 
 elif id == 1:
 	ipAddress= config.IpCar1
@@ -59,7 +59,7 @@ elif id == 1:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUp: Car Main 1 ID found --> Starting CarMain()')
-	CarMain(id,ipAddress)
+	CarMain(id)
 
 	#Car ID and ip address are passed as arguments to car main function
 
@@ -70,7 +70,7 @@ elif id == 2:
 	os.system('sudo ifconfig eth0 up')
 	print('')
 	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
-	#CarMain(id,ipAddress)
+	#CarMain(id)
 
 elif id == 3:
 	ipAddress=IpCar3
@@ -79,5 +79,5 @@ elif id == 3:
 	os.system('sudo ifconfig eth0 up')
 	print ('')
 	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
-	#CarMain(id,ipAddress)
+	#CarMain(id)
 	
