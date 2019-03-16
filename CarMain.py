@@ -8,7 +8,7 @@ from CarLampInitialize import CarLampInitialize
 from CarButtonInitialize import CarButtonInitialize
 from udpListener import *
 	
-def CarMain(carID,ipAddress):
+def CarMain(id):
 	print ('Starting CarMain')
 	CarButtonInitialize()
 	CarLampInitialize()
