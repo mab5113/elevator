@@ -20,8 +20,7 @@ def send(message):
 	sock.sendto(message.encode(), ("192.168.254.81", 5005))
 
 
-def CarManager():
-
+def CarManager(id):
 	Car=StepperDriverClass()
 	
 	stepPos = 0
@@ -36,8 +35,8 @@ def CarManager():
 	up = 1
 	down = -1
 	topFloor = 5
-	floor=1
-	direction=1
+	floor = 1
+	direction = 1
 
 	config.FloorStopList[1] = 0
 	config.FloorStopList[2] = 0
@@ -109,5 +108,3 @@ def CarManager():
 			break  # finishing the loop
 		time.sleep(2)
 		print('No key Pressed!')
-
-
