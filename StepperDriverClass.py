@@ -73,7 +73,7 @@ class StepperDriverClass():
 					GPIO.output(pin, False)
 				return
 
-			#TODO: Figure out this code block
+			#TODO: Describe this code block
 			for pin in range(0, 4):
 				xpin = StepPins[pin]
 				if self.Seq[self.StepSeqCounter][pin] != 0:
