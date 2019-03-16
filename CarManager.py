@@ -21,6 +21,8 @@ def send(message):
 
 
 def CarManager(id):
+	
+	#Create an instance of the stepper motor driver
 	Car=StepperDriverClass()
 	
 	stepPos = 0
@@ -47,6 +49,8 @@ def CarManager(id):
 	print ('CarManager: Starting main loop')
 
 	while True:
+		# Poll the floor calls continuously
+		
 		# TODO:  convert this code to process without if statements
 		
 		if config.FloorStopList[floor] == 1:
