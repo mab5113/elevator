@@ -39,9 +39,11 @@ else: 			id2=0
 #Convert inputs  to a binary number
 id= id1 + id2 * 2
 
+print ()
 print(' ID1:', id1, '  ID2:', id2, '   ID:', id)
 
 print ('StartUp: floorStopList; ', config.FloorStopList)
+print ()
 
 if id == 0:
 	ipAddress=config.IpHall
@@ -70,7 +72,7 @@ elif id == 2:
 	os.system('sudo ifconfig eth0 up')
 	print('')
 	print('StartUp: Car Main 2 ID found --> Starting CarMain()')
-	#CarMain(id,ipAddress)
+	CarMain(id,ipAddress)
 
 elif id == 3:
 	ipAddress=IpCar3
