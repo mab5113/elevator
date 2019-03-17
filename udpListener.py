@@ -42,6 +42,9 @@ def myListener():
 		#print (len(s))
 		#print (s)
 		#print (addr)
+		if msg == 'RequestLocation':
+			pass
+			
 		if msg.startswith('hbp'):
 			floor = s[1]
 			if   floor == '-2': pin = 3

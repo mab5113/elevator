@@ -4,12 +4,11 @@
 #   Describe reason for the StepperDriverClass
 #   Add recommendations for identifier names
 
-import socket
 import random
 import time
 import config
 import RPi.GPIO as GPIO
-# import keyboard  # using module keyboard
+from udpSend import udpSend
 
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager
@@ -19,9 +18,9 @@ def send(message):
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	sock.sendto(message.encode(), ("192.168.254.81", 5005))
 
-
-def CarManager():
-
+def CarManager(id):
+	
+	#Create an instance of the stepper motor driver
 	Car=StepperDriverClass()
 	
 	stepPos = 0
@@ -36,44 +35,41 @@ def CarManager():
 	up = 1
 	down = -1
 	topFloor = 5
-	floor=1
-	direction=1
+	floor = 1
+	direction = 1
 
-	config.FloorStopList[1] = 0
-	config.FloorStopList[2] = 0
-	config.FloorStopList[3] = 0
-	config.FloorStopList[4] = 0
-	config.FloorStopList[5] = 0
 
 	print ('CarManager: Starting main loop')
 
 	while True:
+		# Poll the floor calls continuously
+		
 		# TODO:  convert this code to process without if statements
 		
-		if config.FloorStopList[floor] == 1:
-			config.FloorStopList[floor] = 0
+		if config.CarFloorStopList[floor] == 1:
+			config.CarFloorStopList[floor] = 0
 			print ('CarManager: Moving to floor ', floor)
 			
 			if floor == 1:
 				Car.move2Position(-1000)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
           
 			elif floor == 2:
 				Car.move2Position(config.CarTopPosition[1]/4)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 			elif floor == 3:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 2)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 			elif floor == 4:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 3)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 
 			elif floor == 5:
 				Car.move2Position(100000)
-				send('moving to floor ', floor)
+				send('moving to floor ' + str(floor))
   
 			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'
@@ -81,8 +77,8 @@ def CarManager():
 		time.sleep(.5)
 
 		
-		# config.FloorStopList[0] = config.FloorStopList[0] + 1
-		# print (config.FloorStopList)
+		# config.CarFloorStopList[0] = config.CarFloorStopList[0] + 1
+		# print (config.CarFloorStopList)
 
 		# floor will start at 0, this makes it so the first floor will be 1, etc
 		floor = floor + direction
@@ -98,10 +94,10 @@ def CarManager():
 
 		#code to exercise the elevator
 		f = random.randint(1,5)
-		config.FloorStopList[f] = 1
+		config.CarFloorStopList[f] = 1
 		CarLampManager(f, 1)
 		time.sleep(1)
-		print (config.FloorStopList)
+		print (config.CarFloorStopList)
 
 	while True:  # making a loop
 		if keyboard.is_pressed('q'):  # if key 'q' is pressed 
@@ -109,5 +105,3 @@ def CarManager():
 			break  # finishing the loop
 		time.sleep(2)
 		print('No key Pressed!')
-
-

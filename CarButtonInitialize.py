@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 #TODO: add description for this module
 #  Use pin number from config.py as list and configure in loop
 
@@ -5,7 +7,7 @@ import time
 import RPi.GPIO as GPIO
 from CarButtonCallBack import CarButtonCallBack
 
-def CarButtonInitialize():
+def CarButtonInitialize(id):
 
 	# Use BCM GPIO references
 	# instead of physical pin numbers
