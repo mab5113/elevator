@@ -62,7 +62,7 @@ def myListener():
 		#config.test=msg
 		#print (config.test)
 
-def udpListenerMain():
+def udpListenerMain(id):
 	threadlock = threading.Lock()
 	thread1= myThread(1,"Thread1", 1)
 	thread1.start()

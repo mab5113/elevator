@@ -8,13 +8,17 @@ import config
 
 #class StepperDriverClass(id, steps, StepMotorPins, limitSwitchBottomPin, limitSwitchTopPin):
 class StepperDriverClass():
+	#StepMotorPins = [6,5,4,3]	
 
-	def __init__(self): 
+	def __init__(self, 
+			StepMotorPins, 
+			LimitSwitchTopPin,
+			LimitSwitchBottomPin ): 
 		# Variables defined here are instance variables available in instances of the class only
 		StepMotorPins = StepMotorPins 		# [6,5,4,3]	
-		limitSwitchBottomPin = limitSwitchTopPin  	# = 7
+		limitSwitchBottomPin = limitSwitchBottomPin  	# = 7
 		limitSwitchTopPin = limitSwitchTopPin  	# = 8
-		pass
+		#pass
 	
 	# Variables defined here are called class variables and are in all instances of this class
 	#   Each group of 4 values (bits) are applied to the H-Bridge controller inputs 
@@ -42,7 +46,6 @@ class StepperDriverClass():
 	# Physical pins 5, 7, 29, 31
 	# GPIO3, GPIO4, GPIO5, GPIO6
 	
-	StepMotorPins = [6,5,4,3]	
 	# Set all pins as output and set to sink current
 	for pin in StepMotorPins:
 		GPIO.setup(pin,GPIO.OUT)

@@ -8,7 +8,7 @@ import random
 import time
 import config
 import RPi.GPIO as GPIO
-from udpSend import udpSend
+#from udpSend import udpSend
 
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager

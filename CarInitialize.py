@@ -21,7 +21,7 @@ def CarInitialize(id):
 	
 	CarButtonInitialize(id)
 	CarLampInitialize(id)
-	udpListenerMain(id)
+	#udpListenerMain(id)
 	CarManager(id)
 
 	print ('Starting CarInitialize for car #', id)
