@@ -9,8 +9,9 @@ def send(message, ip = "127.0.0.1"):
 	sock.sendto(message.encode(), (ip, port))
 
 c =1
+msg='test'
 while msg != "":
-	send(c)
+	send(str(c))
 	c += 1
 	time.sleep(1)
 #send("quit")
