@@ -20,7 +20,7 @@ while msg != "":
 	  'city': 'New York'
 	}
 	
-	jsonObj = json.loads(x)
+	#jsonObj = json.loads(x)
 
 	send(jsonObj)
 	c += 1
