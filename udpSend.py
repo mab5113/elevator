@@ -16,14 +16,8 @@ c =1
 msg='test'
 while msg != "":
 	
-	# a Python object (dict):
-	x = {
-	  'name': 'John',
-	  'age': 30,
-	  'city': 'New York'
-	}
 	
-	send(pickle.dumps(x))
+	send('a,b,c')
 	c += 1
 	time.sleep(1)
 #send("quit")
