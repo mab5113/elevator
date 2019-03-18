@@ -21,8 +21,8 @@ def send(message):
 def CarManager(id):
 	
 	#Create an instance of the stepper motor driver
-	Car=StepperDriverClass()
-	
+	Car=StepperDriverClass([6,5,4,3], 7, 8 )
+
 	stepPos = 0
 		
 	Car.move2Position(-10000)	#???
@@ -37,7 +37,6 @@ def CarManager(id):
 	topFloor = 5
 	floor = 1
 	direction = 1
-
 
 	print ('CarManager: Starting main loop')
 
