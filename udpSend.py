@@ -9,8 +9,8 @@ def send(message, ip = "127.0.0.1"):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	
-	#sock.sendto(message.encode(), (ip, port))
-	sock.sendall(message, (ip, port))
+	sock.sendto(message.encode(), (ip, port))
+	#sock.sendall(message, (ip, port))
 
 c =1
 msg='test'
