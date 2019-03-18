@@ -1,6 +1,9 @@
 import socket
 import time
 import json
+import pickle
+
+
 def send(message, ip = "127.0.0.1"):
 	port = 5005
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
@@ -20,9 +23,7 @@ while msg != "":
 	  'city': 'New York'
 	}
 	
-	#jsonObj = json.loads(x)
-
-	send(x)
+	send(pickle.dumps(x))
 	c += 1
 	time.sleep(1)
 #send("quit")
