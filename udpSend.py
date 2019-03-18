@@ -16,7 +16,7 @@ while msg != "":
 	x = {
 	  'name': 'John',
 	  'age': 30,
-	  'city": 'New York'
+	  'city': 'New York'
 	}
 
 	send(x)
