@@ -1,5 +1,5 @@
 import socket
-# import time
+import time
 
 def send(message, ip = "127.0.0.1"):
 	port = 5005
