@@ -22,7 +22,7 @@ while msg != "":
 	
 	#jsonObj = json.loads(x)
 
-	send(jsonObj)
+	send(x)
 	c += 1
 	time.sleep(1)
 #send("quit")
