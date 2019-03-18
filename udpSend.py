@@ -1,6 +1,6 @@
 import socket
 import time
-
+import json
 def send(message, ip = "127.0.0.1"):
 	port = 5005
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
@@ -11,7 +11,15 @@ def send(message, ip = "127.0.0.1"):
 c =1
 msg='test'
 while msg != "":
-	send(str(c))
+	
+	# a Python object (dict):
+	x = {
+	  "name": "John",
+	  "age": 30,
+	  "city": "New York"
+	}
+
+	send(x)
 	c += 1
 	time.sleep(1)
 #send("quit")
