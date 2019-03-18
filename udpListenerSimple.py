@@ -48,4 +48,4 @@ def Main(id):
 	print ("udpListenerMain: udp listener thread started")
 	myListener()
 
-main(1)
+Main(1)
