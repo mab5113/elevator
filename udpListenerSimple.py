@@ -46,5 +46,6 @@ def Main(id):
 	thread1= myThread(1,"Thread1", 1)
 	thread1.start()
 	print ("udpListenerMain: udp listener thread started")
+	myListener()
 
-main()
+main(1)
