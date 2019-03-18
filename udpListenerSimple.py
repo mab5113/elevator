@@ -34,6 +34,10 @@ def myListener():
 		msg, addr = sock.recvfrom(1024)	# buffer size is 1024 bytes
 		msg = msg.decode('utf-8')
 		print (msg)
+		a,b,c = msg.split(',')
+		print (a)
+		print (b)
+		print (c)
 		if msg == 'quit':
 			print ("Received quit message, exiting udp Listener")
 			thread1.stop()
