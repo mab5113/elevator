@@ -14,9 +14,9 @@ while msg != "":
 	
 	# a Python object (dict):
 	x = {
-	  "name": "John",
-	  "age": 30,
-	  "city": "New York"
+	  'name': 'John',
+	  'age': 30,
+	  'city": 'New York'
 	}
 
 	send(x)
