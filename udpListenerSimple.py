@@ -10,9 +10,9 @@ class myThread (threading.Thread):
 		self.counter = counter
 	def run(self):
 		print ("Starting " + self.name)
-		threadlock.acquire()
+		#threadlock.acquire()
 		myListener()
-		threadlock.release()
+		#threadlock.release()
 
 	def stop(self):
 		print ("udp listener thread exiting")
