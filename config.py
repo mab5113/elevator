@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # Global identifiers to be imported into modules
 
 RoleIdPin1 = 0
@@ -8,10 +9,14 @@ FloorStopList    = [0,0,0,0,0,0]
 CarFloorStopList = [0,0,0,0,0,0]
 
 CarCurrentFloor  = 0
+CarCurrentPosition  = 0         
 CarCurrentDirection = 0           # 0=stopped, 1=up, -1=down
 
+Seq = [[1,0,0,1], [1,0,0,0], [1,1,0,0], [0,1,0,0], [0,1,1,0], [0,0,1,0], [0,0,1,1], [0,0,0,1]]
 CarLampsPins  = [0,19,20,21,22,23]
 CarButtonPins = [0,14,15,16,17,18]
+LSBottomPin   = 7
+LSTopPin  	  = 8
 
 CarCurrentStatus = 0
 CarCurrentStepPosition = 0
