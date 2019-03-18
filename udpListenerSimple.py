@@ -42,7 +42,7 @@ def myListener():
 
 
 def Main(id):
-	threadlock = threading.Lock()
+	#threadlock = threading.Lock()
 	thread1= myThread(1,"Thread1", 1)
 	thread1.start()
 	print ("udpListenerMain: udp listener thread started")
