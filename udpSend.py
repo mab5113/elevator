@@ -7,7 +7,7 @@ def send(message, ip = "127.0.0.1"):
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	
 	#sock.sendto(message.encode(), (ip, port))
-	sock.sendto(message, (ip, port))
+	sock.sendall(message, (ip, port))
 
 c =1
 msg='test'
@@ -19,8 +19,10 @@ while msg != "":
 	  'age': 30,
 	  'city': 'New York'
 	}
+	
+	jsonObj = json.loads(x)
 
-	send(x)
+	send(jsonObj)
 	c += 1
 	time.sleep(1)
 #send("quit")
