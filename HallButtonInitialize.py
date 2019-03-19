@@ -6,7 +6,7 @@
 from HallButtonCallBack import HallButtonCallBack
 import RPi.GPIO as GPIO
 
-def HallButtonInitialize():
+def HallButtonInitialize(id):
 
 	print ('HallButton Initialize: Started')
 	# Use BCM GPIO references instead of physical pin numbers
