@@ -9,6 +9,7 @@ import random
 import time
 import config
 import RPi.GPIO as GPIO
+#import CarDoorManager from CarDoorManager
 #from udpSend import udpSend
 
 from StepperDriverClass import StepperDriverClass
@@ -70,7 +71,8 @@ def CarManager(id):
 			elif floor == 5:
 				Car.move2Position(100000)
 				#send('moving to floor ' + str(floor))
-  
+				
+  			CarDoorManager()
 			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'
 			CarLampManager(floor, 0)
