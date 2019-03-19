@@ -21,7 +21,7 @@ With the success of the prototype, AHI has agreed to continue funding the projec
 The model and software will implement as many “normal” passenger elevator functions as possible. <br>
 <br>
 </p>
-** MASTER (raspberry pi)**
+**MASTER (raspberry pi)**
 
 <p>
 gets button presses<br>
