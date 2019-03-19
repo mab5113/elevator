@@ -4,7 +4,7 @@ import json
 import pickle
 
 
-def send(message, ip = "127.0.0.1"):
+def send(message, ip = "10.81.104.104"):
 	port = 5005
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
