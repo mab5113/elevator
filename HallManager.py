@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import time
+
 def HallManager(id):
 	try:   	
 		while True:
