@@ -1,11 +1,11 @@
 
 <p>.This project developes the code for a model elevator of 2 cars runs on a raspberry pi 3 <br>
 <br>
-<h2>**TO CLONE**<br>
-</h2>
+**TO CLONE**
+
 -git clone https://github.com/sdev265/elevator.git<br>
 <br>
-**HISTORY<br>**
+**HISTORY** <br>
 
 One year ago AHI funded the building of a tabletop model prototype. <br>
 The general requirements was the prototype controller and software must control a five (5) floor elevator prototype. <br>
@@ -21,7 +21,7 @@ With the success of the prototype, AHI has agreed to continue funding the projec
 The model and software will implement as many “normal” passenger elevator functions as possible. <br>
 <br>
 </p>
-** MASTER (raspberry pi) **
+** MASTER (raspberry pi)**
 
 <p>
 gets button presses<br>
@@ -32,7 +32,7 @@ Computes car movement priority <br>
 </p>
 
 
-**CAR 1 control (raspberry pi) **
+**CAR 1 control (raspberry pi)**
 <p>
 Move car up/down<br>
 Controls door<br>
@@ -43,7 +43,7 @@ Send car info to master<br>
 Receives floor stop list from master<br>
 </p>
 
-**CAR 2 control (Raspberry PI) **
+**CAR 2 control (Raspberry PI)**
 <p>
 Move car up/down<br>
 Controls door<br>
