@@ -13,15 +13,11 @@ import RPi.GPIO as GPIO
 from StepperDriverClass import StepperDriverClass
 from CarLampManager import CarLampManager
 
-def send(message):
-	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
-	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-	sock.sendto(message.encode(), ("192.168.254.81", 5005))
-
 def CarManager(id):
 	
 	#Create an instance of the stepper motor driver
-	Car=StepperDriverClass([6,5,4,3], 7, 8 )
+	#stepMotorPins = [6,5,4,3]
+	Car = StepperDriverClass()    #(stepMotorPins, 7, 8 )
 
 	stepPos = 0
 		
@@ -51,24 +47,24 @@ def CarManager(id):
 			
 			if floor == 1:
 				Car.move2Position(-1000)
-				send('moving to floor ' + str(floor))
+				#send('moving to floor ' + str(floor))
           
 			elif floor == 2:
 				Car.move2Position(config.CarTopPosition[1]/4)
-				send('moving to floor ' + str(floor))
+				#send('moving to floor ' + str(floor))
   
 			elif floor == 3:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 2)
-				send('moving to floor ' + str(floor))
+				#send('moving to floor ' + str(floor))
   
 			elif floor == 4:
 				Car.move2Position(config.CarTopPosition[1] / 4 * 3)
-				send('moving to floor ' + str(floor))
+				#send('moving to floor ' + str(floor))
   
 
 			elif floor == 5:
 				Car.move2Position(100000)
-				send('moving to floor ' + str(floor))
+				#send('moving to floor ' + str(floor))
   
 			print ('CarManager: Arrived floor ', floor)
 			CurrentStatus='stopped'

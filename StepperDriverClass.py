@@ -8,39 +8,40 @@ import config
 
 #class StepperDriverClass(id, steps, StepMotorPins, limitSwitchBottomPin, limitSwitchTopPin):
 class StepperDriverClass():
-	#StepMotorPins = [6,5,4,3]	
-
-	def __init__(self, 
-			StepMotorPins, 
-			LimitSwitchTopPin,
-			LimitSwitchBottomPin ): 
+	def __init__(self): 
+	#def __init__(self, StepMotorPins, LimitSwitchTopPin, LimitSwitchBottomPin ): 
 		# Variables defined here are instance variables available in instances of the class only
-		StepMotorPins = StepMotorPins 		# [6,5,4,3]	
-		limitSwitchBottomPin = limitSwitchBottomPin  	# = 7
-		limitSwitchTopPin = limitSwitchTopPin  	# = 8
-		#pass
+		#StepMotorPins = StepMotorPins 		# [6,5,4,3]	
+		#LimitSwitchBottomPin = limitSwitchBottomPin  	# = 7
+		#LimitSwitchTopPin = limitSwitchTopPin  	# = 8
+		print ( 'init')
+		pass
 	
 	# Variables defined here are called class variables and are in all instances of this class
 	#   Each group of 4 values (bits) are applied to the H-Bridge controller inputs 
 	#     by the RPi outputs pins
 	#  H-bridge sequence in manufacturers datasheet
 	#  Notice that from step to step, only one bit changes
-		
+
 	Seq = [[1,0,0,1], [1,0,0,0], [1,1,0,0], [0,1,0,0], [0,1,1,0], [0,0,1,0], [0,0,1,1], [0,0,0,1]]
 	#Initializes starting position and counter for steps taken
+	
 	currentPosition = 0
 	grandTotalSteps = 0
 	id = 1  # remove
 	
-	limitSwitchBottomPin = 7
-	limitSwitchTopPin    = 8
-		
+	StepMotorPins = [6,5,4,3]
+	LimitSwitchBottomPin = 7	
+	LimitSwitchTopPin    = 8
+
+
+	
 	# Use BCM GPIO references instead of physical pin numbers
 	GPIO.setmode(GPIO.BCM)
 	
 	#set up top and bottom floor limit switches
-	GPIO.setup(7,GPIO.IN, pull_up_down=GPIO.PUD_UP)
-	GPIO.setup(8,GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.setup(LimitSwitchBottomPin,GPIO.IN, pull_up_down=GPIO.PUD_UP)
+	GPIO.setup(LimitSwitchTopPin,GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 	# Define GPIO signals to use
 	# Physical pins 5, 7, 29, 31
@@ -54,19 +55,23 @@ class StepperDriverClass():
 	StepSeqCounter = 0
 
 	def move2Position(self, Position):
-		if config.CarCurrentStepPosition[id] > Position:
+					
+		StepMotorPins = [6,5,4,3]
+		LimitSwitchBottomPin = 7	
+		LimitSwitchTopPin    = 8
+		id =1
+
+		if config.CarCurrentStepPosition[1] > Position:
 			#Sets the stepper direction to down
 			stepDir = -1
 		else:
 			#Sets the stepper direction to up
 			stepDir = 1
 
-		StepMotorPins = [6,5,4,3]
-							   
 		while config.CarCurrentStepPosition[id] != Position:
 			#Each loop will rotate the stepper motor one step
 
-			if not GPIO.input(7) and stepDir == -1:
+			if not GPIO.input(LimitSwitchBottomPin) and stepDir == -1:
 				#At bottom, input is low/false when switch closes
 				# can't go lower than bottom
 				print("bottom limit reached")
@@ -75,7 +80,7 @@ class StepperDriverClass():
 					GPIO.output(pin, False)
 				return
 			
-			elif not GPIO.input(8) and stepDir == 1:
+			elif not GPIO.input(LimitSwitchTopPin) and stepDir == 1:
 				#At top, input is high/true when switch closes
 				# can't go higher than top
 				print("top limit reached")
@@ -100,12 +105,9 @@ class StepperDriverClass():
 			elif self.StepSeqCounter<0:
 				self.StepSeqCounter = len(self.Seq) + stepDir
 	
-			config.CarCurrentStepPosition[id] += stepDir
+			config.CarCurrentStepPosition[1] += stepDir
 
-		time.sleep(config.CarStepWaitTime[id]) # Wait before moving on to next step
+			time.sleep(config.CarStepWaitTime[1]) # Wait before moving on to next step
+			#time.sleep(.02) # Wait before moving on to next step
 		
-		#make sure motor is not drawing current
-		# may want to have current flow through winding to hold stepper at floor
-		for pin in StepMotorPins:
-			GPIO.output(pin, False)
-
+	
