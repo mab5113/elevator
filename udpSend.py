@@ -1,16 +1,23 @@
 import socket
-# import time
+import time
+import json
+import pickle
 
-def send(message, ip = "192.168.254.69"):
+
+def send(message, ip = "127.0.0.1"):
 	port = 5005
 	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 	sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	
 	sock.sendto(message.encode(), (ip, port))
+	#sock.sendall(message, (ip, port))
 
-#floor = ""
-#while floor != "-99":
-#	floor = str(input("Floor Number: "))
-#	send(floor)
-# time.sleep(.3)
+c =1
+msg='test'
+while msg != "":
+	
+	
+	send('a,b,c')
+	c += 1
+	time.sleep(1)
 #send("quit")
