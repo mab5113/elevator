@@ -15,6 +15,7 @@ class StepperDriverClass():
 	
 	# Use BCM GPIO references instead of physical pin numbers
 	GPIO.setmode(GPIO.BCM)
+	
 
 
 	def __init__(self, id, StepMotorPins, LSTopPin, LSBottomPin ): 
