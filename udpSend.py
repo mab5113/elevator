@@ -1,8 +1,5 @@
 import socket
 import time
-import json
-import pickle
-
 
 def send(message, ip = "10.81.104.104"):
 	port = 5005
@@ -12,12 +9,9 @@ def send(message, ip = "10.81.104.104"):
 	sock.sendto(message.encode(), (ip, port))
 	#sock.sendall(message, (ip, port))
 
-c =1
-msg='test'
-while msg != "":
-	
-	
-	send('a,b,c')
-	c += 1
-	time.sleep(1)
-#send("quit")
+msg=''
+while msg != "quit":
+	msg = input("Command: ")
+	send (msg)
+	#send('a,b,c')
+
