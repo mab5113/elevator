@@ -8,5 +8,5 @@ from HallManager import HallManager
 def HallInitialize(id):
 	HallLampInitialize(id)
 	HallButtonInitialize(id)
-	myListener(id)
+	#myListener(id)
 	HallManager(id)
